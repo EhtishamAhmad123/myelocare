@@ -45,7 +45,7 @@ def train(model, data_path, project = "runs", name = "train", lr=0.01, epochs=LO
         epochs=epochs,
         device=DEVICE,
         imgsz=640,
-        batch=1,
+        batch=BATCH_SIZE,
         plots=True,
         project=project,
         name=name,
