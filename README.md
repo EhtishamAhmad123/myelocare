@@ -1,3 +1,41 @@
+
+
+
+
+# Run This Simulation
+
+clone the repo
+
+```
+git clone git@github.com:anasimran101/myelocare.git
+```
+
+clone the MMDB dataset in root folder   
+
+
+
+```
+cd myelocare
+git clone git@github.com:LabIA-UFBA/MMDB.git
+```
+
+Then adjust the configurations in yolosimulation/config.py and pyproject.toml
+
+To run on GPU 
+
+```
+flwr run . local-simulation-gpu
+```
+
+Results will be saved in runs folder
+
+##  Dependencies
+```
+pip install wandb flwr
+```
+
+
+
 ---
 tags: [quickstart, vision, fds]
 dataset: [CIFAR-10]
@@ -27,6 +65,7 @@ This will create a new directory called `quickstart-pytorch` with the following 
 quickstart-pytorch
 ├── yolosimulation
 │   ├── __init__.py
+|   ├── configs.py      # will be moved to pyproject.toml
 │   ├── client_app.py   # Defines your ClientApp
 │   ├── server_app.py   # Defines your ServerApp
 │   └── task.py         # Defines your model, training and data loading
