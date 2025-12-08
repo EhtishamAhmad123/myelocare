@@ -1,0 +1,952 @@
+Loading project configuration... 
+Success
+[92mINFO [0m:      Starting CustomFedAvg strategy:
+[92mINFO [0m:      	├── Number of rounds: 2
+[92mINFO [0m:      	├── ArrayRecord (11.57 MB)
+[92mINFO [0m:      	├── ConfigRecord (train): {'lr': 0.001, 'local-epochs': 1, 'batch-size': 1, 'dataset-base': /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower}
+[92mINFO [0m:      	├── ConfigRecord (evaluate): (empty!)
+[92mINFO [0m:      	├──> Sampling:
+[92mINFO [0m:      	│	├──Fraction: train (1.00) | evaluate ( 0.20)
+[92mINFO [0m:      	│	├──Minimum nodes: train (2) | evaluate (2)
+[92mINFO [0m:      	│	└──Minimum available nodes: 2
+[92mINFO [0m:      	└──> Keys in records:
+[92mINFO [0m:      		├── Weighted by: 'num-examples'
+[92mINFO [0m:      		├── ArrayRecord key: 'arrays'
+[92mINFO [0m:      		└── ConfigRecord key: 'config'
+[92mINFO [0m:      
+Created client_0: 136 train, 34 val
+Created client_1: 136 train, 34 val
+Created client_2: 136 train, 34 val
+/home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001
+Model summary (fused): 72 layers, 3,006,038 parameters, 0 gradients, 8.1 GFLOPs
+[34m[1mval: [0mFast image access ✅ (ping: 0.0±0.0 ms, read: 807.1±195.1 MB/s, size: 2421.3 KB)
+[K[34m[1mval: [0mScanning /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/patients/patient 01/labels.cache... 34 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 34/34 3.4Mit/s 0.0s[K[34m[1mval: [0mScanning /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/patients/patient 01/labels.cache... 34 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 34/34 192.5Kit/s 0.0s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 12.2s/it 3.6s<24.3s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 67% ━━━━━━━━──── 2/3 3.2s/it 4.8s<3.2s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 1.8s/it 5.5s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 1.8s/it 5.5s
+                   all         34        202      0.803       0.84      0.889       0.77
+                plasma         30         82      0.783      0.829      0.878      0.768
+            non_plasma         32        120      0.823       0.85        0.9      0.771
+Speed: 11.7ms preprocess, 19.2ms inference, 0.0ms loss, 4.7ms postprocess per image
+Results saved to [1m/home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/val/round_0/server[0m
+[92mINFO [0m:      Initial global evaluation results: {'metrics/precision(B)': 0.802980801032518, 'metrics/recall(B)': 0.8396341463414634, 'metrics/mAP50(B)': 0.888869107268684, 'metrics/mAP50-95(B)': 0.7696401855434499, 'fitness': 0.7696401855434499, 'num-examples': 34}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 1/2]
+[92mINFO [0m:      configure_train: Sampled 3 nodes (out of 3)
+num samples in client validation:  34
+[36m(ClientAppActor pid=9843)[0m {'partition-id': 1, 'num-partitions': 3}
+[36m(ClientAppActor pid=9843)[0m {'num-server-rounds': 2, 'fraction-evaluate': 0.2, 'local-epochs': 1, 'learning-rate': 0.001, 'batch-size': 1, 'num-clients': 3, 'run-partitioner': 1}
+[36m(ClientAppActor pid=9843)[0m Configs:  {'lr': 0.001, 'local-epochs': 1, 'batch-size': 1, 'dataset-base': '/home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower', 'server-round': 1}
+[36m(ClientAppActor pid=9843)[0m Train YAML file for client node 1, file path /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_1.yaml
+[36m(ClientAppActor pid=9844)[0m New https://pypi.org/project/ultralytics/8.3.235 available 😃 Update with 'pip install -U ultralytics'
+[36m(ClientAppActor pid=9844)[0m Ultralytics 8.3.228 🚀 Python-3.10.19 torch-2.1.0+cu118 CUDA:0 (NVIDIA GeForce GTX 1080, 8192MiB)
+[36m(ClientAppActor pid=9844)[0m [34m[1mengine/trainer: [0magnostic_nms=False, amp=True, augment=False, auto_augment=randaugment, batch=1, bgr=0.0, box=7.5, cache=False, cfg=None, classes=None, close_mosaic=10, cls=0.5, compile=False, conf=None, copy_paste=0.0, copy_paste_mode=flip, cos_lr=False, cutmix=0.0, data=/home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_0.yaml, degrees=0.0, deterministic=True, device=0, dfl=1.5, dnn=False, dropout=0.0, dynamic=False, embed=None, epochs=1, erasing=0.4, exist_ok=False, fliplr=0.5, flipud=0.0, format=torchscript, fraction=1.0, freeze=None, half=False, hsv_h=0.015, hsv_s=0.7, hsv_v=0.4, imgsz=640, int8=False, iou=0.7, keras=False, kobj=1.0, line_width=None, lr0=0.01, lrf=0.01, mask_ratio=4, max_det=300, mixup=0.0, mode=train, model=pretrained_models/pmmdc_300epochs/best.pt, momentum=0.937, mosaic=1.0, multi_scale=False, name=client_0, nbs=64, nms=False, opset=None, optimize=False, optimizer=auto, overlap_mask=True, patience=100, perspective=0.0, plots=True, pose=12.0, pretrained=True, profile=False, project=/home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_1, rect=False, resume=False, retina_masks=False, save=True, save_conf=False, save_crop=False, save_dir=/home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_1/client_0, save_frames=False, save_json=False, save_period=-1, save_txt=False, scale=0.5, seed=0, shear=0.0, show=False, show_boxes=True, show_conf=True, show_labels=True, simplify=True, single_cls=False, source=None, split=val, stream_buffer=False, task=detect, time=None, tracker=botsort.yaml, translate=0.1, val=True, verbose=False, vid_stride=1, visualize=False, warmup_bias_lr=0.1, warmup_epochs=3.0, warmup_momentum=0.8, weight_decay=0.0005, workers=8, workspace=None
+[36m(ClientAppActor pid=9844)[0m 
+[36m(ClientAppActor pid=9844)[0m                    from  n    params  module                                       arguments                     
+[36m(ClientAppActor pid=9844)[0m   0                  -1  1       464  ultralytics.nn.modules.conv.Conv             [3, 16, 3, 2]                 
+[36m(ClientAppActor pid=9844)[0m   1                  -1  1      4672  ultralytics.nn.modules.conv.Conv             [16, 32, 3, 2]                
+[36m(ClientAppActor pid=9844)[0m   2                  -1  1      7360  ultralytics.nn.modules.block.C2f             [32, 32, 1, True]             
+[36m(ClientAppActor pid=9844)[0m   3                  -1  1     18560  ultralytics.nn.modules.conv.Conv             [32, 64, 3, 2]                
+[36m(ClientAppActor pid=9844)[0m   4                  -1  2     49664  ultralytics.nn.modules.block.C2f             [64, 64, 2, True]             
+[36m(ClientAppActor pid=9844)[0m   5                  -1  1     73984  ultralytics.nn.modules.conv.Conv             [64, 128, 3, 2]               
+[36m(ClientAppActor pid=9843)[0m 
+[36m(ClientAppActor pid=9843)[0m   9                  -1  1    164608  ultralytics.nn.modules.block.SPPF            [256, 256, 5]                 
+[36m(ClientAppActor pid=9843)[0m  10                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+[36m(ClientAppActor pid=9843)[0m  11             [-1, 6]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+[36m(ClientAppActor pid=9843)[0m  12                  -1  1    148224  ultralytics.nn.modules.block.C2f             [384, 128, 1]                 
+[36m(ClientAppActor pid=9843)[0m  13                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+[36m(ClientAppActor pid=9843)[0m  14             [-1, 4]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+[36m(ClientAppActor pid=9843)[0m  15                  -1  1     37248  ultralytics.nn.modules.block.C2f             [192, 64, 1]                  
+[36m(ClientAppActor pid=9843)[0m  17            [-1, 12]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+[36m(ClientAppActor pid=9843)[0m  18                  -1  1    123648  ultralytics.nn.modules.block.C2f             [192, 128, 1]                 
+[36m(ClientAppActor pid=9843)[0m  20             [-1, 9]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+[36m(ClientAppActor pid=9843)[0m  21                  -1  1    493056  ultralytics.nn.modules.block.C2f             [384, 256, 1]                 
+[36m(ClientAppActor pid=9843)[0m  22        [15, 18, 21]  1    751702  ultralytics.nn.modules.head.Detect           [2, [64, 128, 256]]           
+[36m(ClientAppActor pid=9844)[0m  12                  -1  1    148224  ultralytics.nn.modules.block.C2f             [384, 128, 1]                 
+[36m(ClientAppActor pid=9844)[0m  15                  -1  1     37248  ultralytics.nn.modules.block.C2f             [192, 64, 1]                  
+[36m(ClientAppActor pid=9844)[0m  18                  -1  1    123648  ultralytics.nn.modules.block.C2f             [192, 128, 1]                 
+[36m(ClientAppActor pid=9844)[0m  21                  -1  1    493056  ultralytics.nn.modules.block.C2f             [384, 256, 1]                 
+[36m(ClientAppActor pid=9844)[0m Model summary: 129 layers, 3,011,238 parameters, 3,011,222 gradients, 8.2 GFLOPs
+[36m(ClientAppActor pid=9844)[0m 
+[36m(ClientAppActor pid=9843)[0m 
+[36m(ClientAppActor pid=9843)[0m Transferred 355/355 items from pretrained weights
+[36m(ClientAppActor pid=9844)[0m Freezing layer 'model.22.dfl.conv.weight'
+[36m(ClientAppActor pid=9844)[0m [34m[1mAMP: [0mrunning Automatic Mixed Precision (AMP) checks...
+[36m(ClientAppActor pid=9843)[0m [34m[1mAMP: [0mchecks passed ✅
+[36m(ClientAppActor pid=9843)[0m [34m[1mtrain: [0mFast image access ✅ (ping: 0.0±0.0 ms, read: 5041.8±616.1 MB/s, size: 1600.4 KB)
+[36m(ClientAppActor pid=9843)[0m [K[34m[1mtrain: [0mScanning /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_1/train/labels... 112 images, 0 backgrounds, 0 corrupt: 82% ━━━━━━━━━╸── 112/136 328.1it/s 0.1s<0.1s[K[34m[1mtrain: [0mScanning /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_1/train/labels... 136 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 136/136 1.3Kit/s 0.1s[K[34m[1mtrain: [0mScanning /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_1/train/labels... 136 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 136/136 1.3Kit/s 0.1s
+[36m(ClientAppActor pid=9843)[0m [34m[1mtrain: [0mNew cache created: /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_1/train/labels.cache
+[36m(ClientAppActor pid=9844)[0m [K[34m[1mtrain: [0mScanning /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_0/train/labels... 128 images, 0 backgrounds, 0 corrupt: 94% ━━━━━━━━━━━─ 128/136 380.9it/s 0.1s<0.0s[K[34m[1mtrain: [0mScanning /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_0/train/labels... 136 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 136/136 1.3Kit/s 0.1s[K[34m[1mtrain: [0mScanning /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_0/train/labels... 136 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 136/136 1.3Kit/s 0.1s
+[36m(ClientAppActor pid=9843)[0m [K[34m[1mval: [0mScanning /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_1/val/labels... 34 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 34/34 586.6it/s 0.1s[K[34m[1mval: [0mScanning /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_1/val/labels... 34 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 34/34 585.0it/s 0.1s
+[36m(ClientAppActor pid=9844)[0m [K[34m[1mval: [0mScanning /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_0/val/labels... 5 images, 0 backgrounds, 0 corrupt: 15% ━╸────────── 5/34 15.0it/s 0.1s<1.9s[K[34m[1mval: [0mScanning /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_0/val/labels... 34 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 34/34 316.5it/s 0.1s[K[34m[1mval: [0mScanning /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_0/val/labels... 34 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 34/34 316.3it/s 0.1s
+[36m(ClientAppActor pid=9843)[0m Plotting labels to /home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_1/client_1/labels.jpg... 
+[36m(ClientAppActor pid=9844)[0m {'partition-id': 0, 'num-partitions': 3}
+[36m(ClientAppActor pid=9844)[0m {'num-server-rounds': 2, 'fraction-evaluate': 0.2, 'local-epochs': 1, 'learning-rate': 0.001, 'batch-size': 1, 'num-clients': 3, 'run-partitioner': 1}
+[36m(ClientAppActor pid=9844)[0m Configs:  {'lr': 0.001, 'local-epochs': 1, 'batch-size': 1, 'dataset-base': '/home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower', 'server-round': 1}
+[36m(ClientAppActor pid=9844)[0m Train YAML file for client node 0, file path /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_0.yaml
+[36m(ClientAppActor pid=9843)[0m New https://pypi.org/project/ultralytics/8.3.235 available 😃 Update with 'pip install -U ultralytics'
+[36m(ClientAppActor pid=9843)[0m Ultralytics 8.3.228 🚀 Python-3.10.19 torch-2.1.0+cu118 CUDA:0 (NVIDIA GeForce GTX 1080, 8192MiB)
+[36m(ClientAppActor pid=9843)[0m [34m[1mengine/trainer: [0magnostic_nms=False, amp=True, augment=False, auto_augment=randaugment, batch=1, bgr=0.0, box=7.5, cache=False, cfg=None, classes=None, close_mosaic=10, cls=0.5, compile=False, conf=None, copy_paste=0.0, copy_paste_mode=flip, cos_lr=False, cutmix=0.0, data=/home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_1.yaml, degrees=0.0, deterministic=True, device=0, dfl=1.5, dnn=False, dropout=0.0, dynamic=False, embed=None, epochs=1, erasing=0.4, exist_ok=False, fliplr=0.5, flipud=0.0, format=torchscript, fraction=1.0, freeze=None, half=False, hsv_h=0.015, hsv_s=0.7, hsv_v=0.4, imgsz=640, int8=False, iou=0.7, keras=False, kobj=1.0, line_width=None, lr0=0.01, lrf=0.01, mask_ratio=4, max_det=300, mixup=0.0, mode=train, model=pretrained_models/pmmdc_300epochs/best.pt, momentum=0.937, mosaic=1.0, multi_scale=False, name=client_1, nbs=64, nms=False, opset=None, optimize=False, optimizer=auto, overlap_mask=True, patience=100, perspective=0.0, plots=True, pose=12.0, pretrained=True, profile=False, project=/home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_1, rect=False, resume=False, retina_masks=False, save=True, save_conf=False, save_crop=False, save_dir=/home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_1/client_1, save_frames=False, save_json=False, save_period=-1, save_txt=False, scale=0.5, seed=0, shear=0.0, show=False, show_boxes=True, show_conf=True, show_labels=True, simplify=True, single_cls=False, source=None, split=val, stream_buffer=False, task=detect, time=None, tracker=botsort.yaml, translate=0.1, val=True, verbose=False, vid_stride=1, visualize=False, warmup_bias_lr=0.1, warmup_epochs=3.0, warmup_momentum=0.8, weight_decay=0.0005, workers=8, workspace=None
+[36m(ClientAppActor pid=9843)[0m                    from  n    params  module                                       arguments                     
+[36m(ClientAppActor pid=9844)[0m  19                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]              [32m [repeated 10x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+[36m(ClientAppActor pid=9844)[0m   8                  -1  1    460288  ultralytics.nn.modules.block.C2f             [256, 256, 1, True]           [32m [repeated 6x across cluster][0m
+[36m(ClientAppActor pid=9844)[0m   9                  -1  1    164608  ultralytics.nn.modules.block.SPPF            [256, 256, 5]                 
+[36m(ClientAppActor pid=9844)[0m  13                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          [32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=9844)[0m  20             [-1, 9]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           [32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=9844)[0m  22        [15, 18, 21]  1    751702  ultralytics.nn.modules.head.Detect           [2, [64, 128, 256]]           
+[36m(ClientAppActor pid=9843)[0m Model summary: 129 layers, 3,011,238 parameters, 3,011,222 gradients, 8.2 GFLOPs
+[36m(ClientAppActor pid=9843)[0m [34m[1moptimizer:[0m 'optimizer=auto' found, ignoring 'lr0=0.01' and 'momentum=0.937' and determining best 'optimizer', 'lr0' and 'momentum' automatically... 
+[36m(ClientAppActor pid=9843)[0m [34m[1moptimizer:[0m AdamW(lr=0.001667, momentum=0.9) with parameter groups 57 weight(decay=0.0), 64 weight(decay=0.0005), 63 bias(decay=0.0)
+[36m(ClientAppActor pid=9843)[0m Image sizes 640 train, 640 val
+[36m(ClientAppActor pid=9843)[0m Using 4 dataloader workers
+[36m(ClientAppActor pid=9843)[0m Logging results to [1m/home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_1/client_1[0m
+[36m(ClientAppActor pid=9843)[0m Starting training for 1 epochs...
+[36m(ClientAppActor pid=9843)[0m 
+[36m(ClientAppActor pid=9843)[0m       Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+[36m(ClientAppActor pid=9844)[0m 
+[36m(ClientAppActor pid=9843)[0m [K        1/1      0.24G     0.6705      3.561     0.9156         84        640: 0% ──────────── 0/136  0.7s
+[36m(ClientAppActor pid=9843)[0m [K        1/1      0.27G     0.8733      2.095      1.171          1        640: 4% ╸─────────── 6/136 4.5it/s 2.0s<28.7s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.271G     0.8478      1.917      1.132          6        640: 5% ╸─────────── 7/136 4.1it/s 2.4s<31.5s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.275G     0.7803      1.766      1.067         30        640: 9% ━─────────── 12/136 5.1it/s 3.3s<24.1s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.275G     0.7565      1.673      1.049         15        640: 10% ━─────────── 13/136 5.5it/s 3.5s<22.3s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.275G     0.7543      1.624      1.037          9        640: 10% ━─────────── 14/136 3.9it/s 9.2s<31.1s
+[36m(ClientAppActor pid=9844)[0m Transferred 355/355 items from pretrained weights
+[36m(ClientAppActor pid=9843)[0m Freezing layer 'model.22.dfl.conv.weight'
+[36m(ClientAppActor pid=9843)[0m [34m[1mAMP: [0mrunning Automatic Mixed Precision (AMP) checks...
+[36m(ClientAppActor pid=9844)[0m [34m[1mAMP: [0mchecks passed ✅
+[36m(ClientAppActor pid=9844)[0m [34m[1mval: [0mFast image access ✅ (ping: 0.0±0.0 ms, read: 2144.7±2490.6 MB/s, size: 1359.4 KB)[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=9844)[0m [34m[1mval: [0mNew cache created: /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_0/val/labels.cache[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.275G     0.6246     0.9196     0.8859          2        640: 29% ━━━╸──────── 40/136 4.6it/s 14.1s<21.1s
+[36m(ClientAppActor pid=9844)[0m Plotting labels to /home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_1/client_0/labels.jpg... 
+[36m(ClientAppActor pid=9844)[0m [34m[1moptimizer:[0m 'optimizer=auto' found, ignoring 'lr0=0.01' and 'momentum=0.937' and determining best 'optimizer', 'lr0' and 'momentum' automatically... 
+[36m(ClientAppActor pid=9844)[0m [34m[1moptimizer:[0m AdamW(lr=0.001667, momentum=0.9) with parameter groups 57 weight(decay=0.0), 64 weight(decay=0.0005), 63 bias(decay=0.0)
+[36m(ClientAppActor pid=9844)[0m Image sizes 640 train, 640 val
+[36m(ClientAppActor pid=9844)[0m Using 4 dataloader workers
+[36m(ClientAppActor pid=9844)[0m Logging results to [1m/home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_1/client_0[0m
+[36m(ClientAppActor pid=9844)[0m Starting training for 1 epochs...
+[36m(ClientAppActor pid=9844)[0m       Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.258G     0.6667     0.3692     0.8511          2        640: 4% ──────────── 5/136 3.6it/s 2.1s<36.5s[32m [repeated 11x across cluster][0m
+[36m(ClientAppActor pid=9844)[0m [K        1/1      0.26G     0.7175     0.6187     0.9373          5        640: 8% ╸─────────── 11/136 3.9it/s 3.6s<32.2s[32m [repeated 10x across cluster][0m
+[36m(ClientAppActor pid=9844)[0m [K        1/1      0.26G     0.6908     0.6122     0.9205         11        640: 10% ━─────────── 13/136 3.6it/s 9.4s<34.5s[32m [repeated 3x across cluster][0m
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.264G     0.6241     0.5725     0.8721          4        640: 26% ━━━───────── 35/136 3.9it/s 14.3s<26.2s
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.264G      0.595     0.9782     0.8223         20        640: 43% ━━━━━─────── 59/136 4.2it/s 19.1s<18.4s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.275G     0.5881     0.7909     0.8548         29        640: 49% ━━━━━╸────── 66/136 4.7it/s 19.3s<14.9s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.275G      0.605     0.7269     0.8518          6        640: 66% ━━━━━━━╸──── 90/136 4.8it/s 24.2s<9.7s
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.264G     0.6105     0.8911     0.8158         13        640: 62% ━━━━━━━───── 85/136 4.4it/s 24.2s<11.5s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.275G     0.6245      0.767     0.8567         16        640: 86% ━━━━━━━━━━── 117/136 4.9it/s 29.2s<3.9s
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.264G     0.6064     0.9077     0.8143          1        640: 63% ━━━━━━━╸──── 86/136 5.2it/s 24.4s<9.6s
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.264G     0.6384     0.8761     0.8286          1        640: 82% ━━━━━━━━━╸── 111/136 5.2it/s 29.3s<4.8s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.275G     0.6459     0.7916      0.868          7        640: 100% ━━━━━━━━━━━━ 136/136 5.0it/s 27.4s[K        1/1     0.275G     0.6459     0.7916      0.868          7        640: 100% ━━━━━━━━━━━━ 136/136 5.0it/s 27.4s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 6% ╸─────────── 1/17 1.5it/s 0.2s<10.5s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 12% ━─────────── 2/17 2.5it/s 0.4s<5.9s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 18% ━━────────── 3/17 2.7it/s 0.7s<5.2s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 24% ━━╸───────── 4/17 3.2it/s 1.0s<4.1s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 29% ━━━╸──────── 5/17 3.5it/s 1.2s<3.4s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 41% ━━━━╸─────── 7/17 6.8it/s 1.3s<1.5s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 47% ━━━━━╸────── 8/17 4.8it/s 6.8s<1.9s
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.264G     0.6438      0.865     0.8283         14        640: 100% ━━━━━━━━━━━━ 136/136 4.8it/s 28.6s[K        1/1     0.264G     0.6438      0.865     0.8283         14        640: 100% ━━━━━━━━━━━━ 136/136 4.8it/s 28.6s
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 6% ╸─────────── 1/17 19.0s/it 5.7s<5:04
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 53% ━━━━━━────── 9/17 5.1it/s 7.0s<1.6s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 59% ━━━━━━━───── 10/17 6.0it/s 7.1s<1.2s
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 12% ━─────────── 2/17 1.5it/s 5.9s<9.7s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 65% ━━━━━━━╸──── 11/17 6.0it/s 7.3s<1.0s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 76% ━━━━━━━━━─── 13/17 6.7it/s 7.5s<0.6s
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 18% ━━────────── 3/17 1.8it/s 6.3s<7.8s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 88% ━━━━━━━━━━╸─ 15/17 7.3it/s 7.7s<0.3s
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 24% ━━╸───────── 4/17 2.5it/s 6.6s<5.3s
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 29% ━━━╸──────── 5/17 3.3it/s 6.8s<3.6s
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 35% ━━━━──────── 6/17 5.3it/s 6.9s<2.1s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 17/17 2.1it/s 8.1s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 17/17 2.1it/s 8.1s
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 71% ━━━━━━━━──── 12/17 8.6it/s 7.5s<0.6s
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 82% ━━━━━━━━━╸── 14/17 9.0it/s 7.7s<0.3s
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 94% ━━━━━━━━━━━─ 16/17 8.2it/s 7.9s<0.1s
+[36m(ClientAppActor pid=9843)[0m                    all         34        207      0.943      0.976      0.984      0.898
+[36m(ClientAppActor pid=9843)[0m 
+[36m(ClientAppActor pid=9843)[0m 1 epochs completed in 0.011 hours.
+[36m(ClientAppActor pid=9843)[0m Optimizer stripped from /home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_1/client_1/weights/last.pt, 6.2MB
+[36m(ClientAppActor pid=9843)[0m Optimizer stripped from /home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_1/client_1/weights/best.pt, 6.2MB
+[36m(ClientAppActor pid=9843)[0m 
+[36m(ClientAppActor pid=9843)[0m Validating /home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_1/client_1/weights/best.pt...
+[36m(ClientAppActor pid=9843)[0m Ultralytics 8.3.228 🚀 Python-3.10.19 torch-2.1.0+cu118 CUDA:0 (NVIDIA GeForce GTX 1080, 8192MiB)
+[36m(ClientAppActor pid=9843)[0m Model summary (fused): 72 layers, 3,006,038 parameters, 0 gradients, 8.1 GFLOPs
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 47% ━━━━━╸────── 8/17 6.6it/s 7.1s<1.4s
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 59% ━━━━━━━───── 10/17 7.3it/s 7.3s<1.0s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 12% ━─────────── 2/17 3.6it/s 0.2s<4.2s
+[36m(ClientAppActor pid=9844)[0m 
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 41% ━━━━╸─────── 7/17 8.5it/s 0.7s<1.2s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 47% ━━━━━╸────── 8/17 8.5it/s 0.8s<1.1s
+[36m(ClientAppActor pid=9844)[0m 
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 65% ━━━━━━━╸──── 11/17 10.9it/s 1.0s<0.5s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 18% ━━────────── 3/17 4.3it/s 0.3s<3.2s
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 88% ━━━━━━━━━━╸─ 15/17 9.3it/s 7.8s<0.2s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 24% ━━╸───────── 4/17 4.6it/s 0.5s<2.8s
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 6% ╸─────────── 1/17 2.2it/s 0.1s<7.2s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 76% ━━━━━━━━━─── 13/17 9.6it/s 1.2s<0.4s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 88% ━━━━━━━━━━╸─ 15/17 10.1it/s 1.4s<0.2s
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 12% ━─────────── 2/17 2.6it/s 0.4s<5.8s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 17/17 9.9it/s 1.7s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 17/17 9.9it/s 1.7s[32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 18% ━━────────── 3/17 3.1it/s 0.7s<4.5s
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 24% ━━╸───────── 4/17 3.5it/s 0.9s<3.7s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 71% ━━━━━━━━──── 12/17 9.7it/s 1.1s<0.5s
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 53% ━━━━━━────── 9/17 12.0it/s 1.1s<0.7s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 94% ━━━━━━━━━━━─ 16/17 10.1it/s 1.5s<0.1s
+[36m(ClientAppActor pid=9843)[0m Speed: 2.8ms preprocess, 23.8ms inference, 0.0ms loss, 4.7ms postprocess per image
+[36m(ClientAppActor pid=9843)[0m Results saved to [1m/home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_1/client_1[0m
+[36m(ClientAppActor pid=9843)[0m                    all         34        207      0.944      0.976      0.984      0.898[32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=9844)[0m 1 epochs completed in 0.011 hours.
+[36m(ClientAppActor pid=9844)[0m Optimizer stripped from /home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_1/client_0/weights/best.pt, 6.2MB[32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=9844)[0m Validating /home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_1/client_0/weights/best.pt...
+[36m(ClientAppActor pid=9844)[0m Ultralytics 8.3.228 🚀 Python-3.10.19 torch-2.1.0+cu118 CUDA:0 (NVIDIA GeForce GTX 1080, 8192MiB)
+[36m(ClientAppActor pid=9844)[0m Model summary (fused): 72 layers, 3,006,038 parameters, 0 gradients, 8.1 GFLOPs
+[36m(ClientAppActor pid=9843)[0m num samples in client train:  136
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 41% ━━━━╸─────── 7/17 9.2it/s 1.0s<1.1s
+[36m(ClientAppActor pid=9843)[0m {'partition-id': 2, 'num-partitions': 3}
+[36m(ClientAppActor pid=9843)[0m {'num-server-rounds': 2, 'fraction-evaluate': 0.2, 'local-epochs': 1, 'learning-rate': 0.001, 'batch-size': 1, 'num-clients': 3, 'run-partitioner': 1}
+[36m(ClientAppActor pid=9843)[0m Configs:  {'lr': 0.001, 'local-epochs': 1, 'batch-size': 1, 'dataset-base': '/home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower', 'server-round': 1}
+[36m(ClientAppActor pid=9843)[0m Train YAML file for client node 2, file path /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_2.yaml
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 65% ━━━━━━━╸──── 11/17 11.2it/s 1.3s<0.5s
+[36m(ClientAppActor pid=9843)[0m New https://pypi.org/project/ultralytics/8.3.235 available 😃 Update with 'pip install -U ultralytics'
+[36m(ClientAppActor pid=9843)[0m Ultralytics 8.3.228 🚀 Python-3.10.19 torch-2.1.0+cu118 CUDA:0 (NVIDIA GeForce GTX 1080, 8192MiB)
+[36m(ClientAppActor pid=9843)[0m [34m[1mengine/trainer: [0magnostic_nms=False, amp=True, augment=False, auto_augment=randaugment, batch=1, bgr=0.0, box=7.5, cache=False, cfg=None, classes=None, close_mosaic=10, cls=0.5, compile=False, conf=None, copy_paste=0.0, copy_paste_mode=flip, cos_lr=False, cutmix=0.0, data=/home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_2.yaml, degrees=0.0, deterministic=True, device=0, dfl=1.5, dnn=False, dropout=0.0, dynamic=False, embed=None, epochs=1, erasing=0.4, exist_ok=False, fliplr=0.5, flipud=0.0, format=torchscript, fraction=1.0, freeze=None, half=False, hsv_h=0.015, hsv_s=0.7, hsv_v=0.4, imgsz=640, int8=False, iou=0.7, keras=False, kobj=1.0, line_width=None, lr0=0.01, lrf=0.01, mask_ratio=4, max_det=300, mixup=0.0, mode=train, model=pretrained_models/pmmdc_300epochs/best.pt, momentum=0.937, mosaic=1.0, multi_scale=False, name=client_2, nbs=64, nms=False, opset=None, optimize=False, optimizer=auto, overlap_mask=True, patience=100, perspective=0.0, plots=True, pose=12.0, pretrained=True, profile=False, project=/home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_1, rect=False, resume=False, retina_masks=False, save=True, save_conf=False, save_crop=False, save_dir=/home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_1/client_2, save_frames=False, save_json=False, save_period=-1, save_txt=False, scale=0.5, seed=0, shear=0.0, show=False, show_boxes=True, show_conf=True, show_labels=True, simplify=True, single_cls=False, source=None, split=val, stream_buffer=False, task=detect, time=None, tracker=botsort.yaml, translate=0.1, val=True, verbose=False, vid_stride=1, visualize=False, warmup_bias_lr=0.1, warmup_epochs=3.0, warmup_momentum=0.8, weight_decay=0.0005, workers=8, workspace=None
+[36m(ClientAppActor pid=9843)[0m 
+[36m(ClientAppActor pid=9843)[0m                    from  n    params  module                                       arguments                     
+[36m(ClientAppActor pid=9843)[0m   0                  -1  1       464  ultralytics.nn.modules.conv.Conv             [3, 16, 3, 2]                 
+[36m(ClientAppActor pid=9843)[0m   1                  -1  1      4672  ultralytics.nn.modules.conv.Conv             [16, 32, 3, 2]                
+[36m(ClientAppActor pid=9843)[0m   2                  -1  1      7360  ultralytics.nn.modules.block.C2f             [32, 32, 1, True]             
+[36m(ClientAppActor pid=9843)[0m   3                  -1  1     18560  ultralytics.nn.modules.conv.Conv             [32, 64, 3, 2]                
+[36m(ClientAppActor pid=9843)[0m   4                  -1  2     49664  ultralytics.nn.modules.block.C2f             [64, 64, 2, True]             
+[36m(ClientAppActor pid=9843)[0m   5                  -1  1     73984  ultralytics.nn.modules.conv.Conv             [64, 128, 3, 2]               
+[36m(ClientAppActor pid=9843)[0m   6                  -1  2    197632  ultralytics.nn.modules.block.C2f             [128, 128, 2, True]           
+[36m(ClientAppActor pid=9843)[0m   7                  -1  1    295424  ultralytics.nn.modules.conv.Conv             [128, 256, 3, 2]              
+[36m(ClientAppActor pid=9843)[0m   8                  -1  1    460288  ultralytics.nn.modules.block.C2f             [256, 256, 1, True]           
+[36m(ClientAppActor pid=9843)[0m   9                  -1  1    164608  ultralytics.nn.modules.block.SPPF            [256, 256, 5]                 
+[36m(ClientAppActor pid=9843)[0m  10                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+[36m(ClientAppActor pid=9843)[0m  11             [-1, 6]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+[36m(ClientAppActor pid=9843)[0m  12                  -1  1    148224  ultralytics.nn.modules.block.C2f             [384, 128, 1]                 
+[36m(ClientAppActor pid=9843)[0m  13                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+[36m(ClientAppActor pid=9843)[0m  14             [-1, 4]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+[36m(ClientAppActor pid=9843)[0m  15                  -1  1     37248  ultralytics.nn.modules.block.C2f             [192, 64, 1]                  
+[36m(ClientAppActor pid=9843)[0m  16                  -1  1     36992  ultralytics.nn.modules.conv.Conv             [64, 64, 3, 2]                
+[36m(ClientAppActor pid=9843)[0m  17            [-1, 12]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+[36m(ClientAppActor pid=9843)[0m  18                  -1  1    123648  ultralytics.nn.modules.block.C2f             [192, 128, 1]                 
+[36m(ClientAppActor pid=9843)[0m  19                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]              
+[36m(ClientAppActor pid=9843)[0m  20             [-1, 9]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+[36m(ClientAppActor pid=9843)[0m  21                  -1  1    493056  ultralytics.nn.modules.block.C2f             [384, 256, 1]                 
+[36m(ClientAppActor pid=9843)[0m  22        [15, 18, 21]  1    751702  ultralytics.nn.modules.head.Detect           [2, [64, 128, 256]]           
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 76% ━━━━━━━━━─── 13/17 11.8it/s 1.5s<0.3s
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 88% ━━━━━━━━━━╸─ 15/17 13.6it/s 1.6s<0.1s
+[36m(ClientAppActor pid=9843)[0m Model summary: 129 layers, 3,011,238 parameters, 3,011,222 gradients, 8.2 GFLOPs
+[36m(ClientAppActor pid=9843)[0m 
+[36m(ClientAppActor pid=9843)[0m Transferred 355/355 items from pretrained weights
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 17/17 9.7it/s 1.8s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 17/17 9.7it/s 1.8s
+[36m(ClientAppActor pid=9843)[0m Freezing layer 'model.22.dfl.conv.weight'
+[36m(ClientAppActor pid=9843)[0m [34m[1mAMP: [0mrunning Automatic Mixed Precision (AMP) checks...
+[36m(ClientAppActor pid=9843)[0m [34m[1mAMP: [0mchecks passed ✅
+[36m(ClientAppActor pid=9843)[0m [34m[1mtrain: [0mFast image access ✅ (ping: 0.0±0.0 ms, read: 4447.4±707.3 MB/s, size: 1487.5 KB)
+[36m(ClientAppActor pid=9843)[0m [K[34m[1mtrain: [0mScanning /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_2/train/labels... 81 images, 0 backgrounds, 0 corrupt: 60% ━━━━━━━───── 81/136 242.9it/s 0.1s<0.2s[K[34m[1mtrain: [0mScanning /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_2/train/labels... 136 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 136/136 895.5it/s 0.2s[K[34m[1mtrain: [0mScanning /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_2/train/labels... 136 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 136/136 893.8it/s 0.2s
+[36m(ClientAppActor pid=9843)[0m [34m[1mtrain: [0mNew cache created: /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_2/train/labels.cache
+[36m(ClientAppActor pid=9843)[0m [34m[1mval: [0mFast image access ✅ (ping: 0.0±0.0 ms, read: 1003.5±1346.1 MB/s, size: 1803.8 KB)
+[36m(ClientAppActor pid=9843)[0m [K[34m[1mval: [0mScanning /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_2/val/labels... 34 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 34/34 933.1it/s 0.0s[K[34m[1mval: [0mScanning /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_2/val/labels... 34 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 34/34 928.5it/s 0.0s
+[36m(ClientAppActor pid=9843)[0m [34m[1mval: [0mNew cache created: /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_2/val/labels.cache
+[36m(ClientAppActor pid=9843)[0m Plotting labels to /home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_1/client_2/labels.jpg... 
+[36m(ClientAppActor pid=9843)[0m [34m[1moptimizer:[0m 'optimizer=auto' found, ignoring 'lr0=0.01' and 'momentum=0.937' and determining best 'optimizer', 'lr0' and 'momentum' automatically... 
+[36m(ClientAppActor pid=9843)[0m [34m[1moptimizer:[0m AdamW(lr=0.001667, momentum=0.9) with parameter groups 57 weight(decay=0.0), 64 weight(decay=0.0005), 63 bias(decay=0.0)
+[36m(ClientAppActor pid=9843)[0m Image sizes 640 train, 640 val
+[36m(ClientAppActor pid=9843)[0m Using 4 dataloader workers
+[36m(ClientAppActor pid=9843)[0m Logging results to [1m/home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_1/client_2[0m
+[36m(ClientAppActor pid=9843)[0m Starting training for 1 epochs...
+[36m(ClientAppActor pid=9843)[0m 
+[36m(ClientAppActor pid=9843)[0m       Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.291G     0.3394     0.2545     0.7587          8        640: 0% ──────────── 0/136  0.3s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.291G     0.5664      1.076     0.6676          3        640: 1% ──────────── 1/136 1.5it/s 0.5s<1:32
+[36m(ClientAppActor pid=9844)[0m Speed: 2.6ms preprocess, 26.5ms inference, 0.0ms loss, 4.9ms postprocess per image
+[36m(ClientAppActor pid=9844)[0m Results saved to [1m/home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_1/client_0[0m
+[36m(ClientAppActor pid=9844)[0m                    all         34        296      0.871      0.929      0.952      0.831
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.291G     0.5759     0.8121     0.7405          2        640: 1% ──────────── 2/136 2.4it/s 0.7s<56.6s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.311G     0.5517     0.7915     0.7596          5        640: 2% ──────────── 3/136 3.2it/s 0.9s<41.3s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.311G     0.5095     0.6766     0.7857          3        640: 3% ──────────── 4/136 4.6it/s 1.0s<28.5s
+[36m(ClientAppActor pid=9843)[0m [K        1/1      0.32G     0.4954     0.6261     0.7967          2        640: 4% ──────────── 5/136 5.0it/s 1.2s<26.1s
+[36m(ClientAppActor pid=9843)[0m [K        1/1      0.32G     0.6001     0.7746     0.8703          1        640: 4% ╸─────────── 6/136 5.0it/s 1.4s<26.1s
+[36m(ClientAppActor pid=9843)[0m [K        1/1      0.32G     0.6325     0.7407     0.8697          2        640: 5% ╸─────────── 7/136 5.1it/s 1.6s<25.3s
+[36m(ClientAppActor pid=9843)[0m [K        1/1      0.32G     0.5845     0.6766     0.8614          3        640: 6% ╸─────────── 8/136 6.0it/s 1.7s<21.4s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.322G     0.6364     0.7472     0.9111          7        640: 7% ╸─────────── 9/136 5.8it/s 1.9s<21.7s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.322G     0.6492     0.7393     0.9139         14        640: 7% ╸─────────── 10/136 6.0it/s 2.0s<21.0s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.324G     0.6216      0.733     0.8731          3        640: 26% ━━━───────── 36/136 6.1it/s 6.1s<16.3s
+[36m(ClientAppActor pid=9844)[0m num samples in client train:  136
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6437      1.098     0.8502          5        640: 53% ━━━━━━────── 72/136 6.4it/s 11.1s<10.0s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6415       1.09     0.8467          1        640: 54% ━━━━━━────── 73/136 6.4it/s 11.3s<9.8s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6416      1.079     0.8446          5        640: 54% ━━━━━━╸───── 74/136 6.5it/s 11.4s<9.6s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6421      1.075      0.844         24        640: 55% ━━━━━━╸───── 75/136 6.8it/s 11.6s<9.0s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6412      1.069     0.8439         12        640: 56% ━━━━━━╸───── 76/136 7.1it/s 11.7s<8.5s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6404      1.059     0.8443          1        640: 57% ━━━━━━╸───── 77/136 7.0it/s 11.8s<8.4s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6434      1.055      0.844         26        640: 57% ━━━━━━╸───── 78/136 6.7it/s 12.0s<8.7s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6433       1.05     0.8436         33        640: 58% ━━━━━━╸───── 79/136 6.7it/s 12.2s<8.5s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G      0.646      1.045      0.844         13        640: 59% ━━━━━━━───── 80/136 7.2it/s 12.3s<7.8s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G      0.644      1.039     0.8446          2        640: 60% ━━━━━━━───── 81/136 7.3it/s 12.4s<7.6s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6491      1.033     0.8484          3        640: 60% ━━━━━━━───── 82/136 7.2it/s 12.6s<7.5s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G       0.65      1.029     0.8497         17        640: 61% ━━━━━━━───── 83/136 7.3it/s 12.7s<7.2s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6515      1.025     0.8515          9        640: 62% ━━━━━━━───── 84/136 7.2it/s 12.8s<7.2s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6495      1.016     0.8509          4        640: 62% ━━━━━━━───── 85/136 7.4it/s 13.0s<6.9s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6507      1.016     0.8511          1        640: 63% ━━━━━━━╸──── 86/136 7.0it/s 13.1s<7.2s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6517      1.011     0.8514         29        640: 64% ━━━━━━━╸──── 87/136 6.2it/s 13.4s<8.0s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6551      1.008     0.8508          8        640: 65% ━━━━━━━╸──── 88/136 6.7it/s 13.5s<7.2s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6533      1.003     0.8498         12        640: 65% ━━━━━━━╸──── 89/136 6.5it/s 13.7s<7.3s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6523      0.999     0.8491         14        640: 66% ━━━━━━━╸──── 90/136 6.5it/s 13.8s<7.1s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6487     0.9912     0.8485          1        640: 67% ━━━━━━━━──── 91/136 6.8it/s 13.9s<6.6s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G      0.662      1.003     0.8538          1        640: 68% ━━━━━━━━──── 92/136 7.3it/s 14.1s<6.0s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6617     0.9957     0.8536          2        640: 68% ━━━━━━━━──── 93/136 7.5it/s 14.2s<5.7s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6607     0.9892     0.8525          7        640: 69% ━━━━━━━━──── 94/136 7.5it/s 14.3s<5.6s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6614     0.9856     0.8533         13        640: 70% ━━━━━━━━──── 95/136 6.9it/s 14.5s<6.0s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6626     0.9825     0.8524         13        640: 71% ━━━━━━━━──── 96/136 7.0it/s 14.6s<5.7s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6662     0.9825     0.8522         18        640: 71% ━━━━━━━━╸─── 97/136 7.0it/s 14.8s<5.5s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6685     0.9795     0.8519         28        640: 72% ━━━━━━━━╸─── 98/136 7.1it/s 14.9s<5.4s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6677     0.9742     0.8529         10        640: 73% ━━━━━━━━╸─── 99/136 7.4it/s 15.0s<5.0s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6648     0.9671     0.8526          2        640: 74% ━━━━━━━━╸─── 100/136 7.1it/s 15.2s<5.1s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6583     0.9762     0.8443          0        640: 74% ━━━━━━━━╸─── 101/136 7.5it/s 15.3s<4.7s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6596     0.9712     0.8456          1        640: 75% ━━━━━━━━━─── 102/136 6.8it/s 15.5s<5.0s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6628     0.9708     0.8457         24        640: 76% ━━━━━━━━━─── 103/136 6.6it/s 15.7s<5.0s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6631     0.9649     0.8452          5        640: 76% ━━━━━━━━━─── 104/136 6.1it/s 15.9s<5.2s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6608     0.9595     0.8431          2        640: 77% ━━━━━━━━━─── 105/136 6.0it/s 16.1s<5.2s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6592     0.9538     0.8426         14        640: 78% ━━━━━━━━━─── 106/136 5.9it/s 16.2s<5.1s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6585     0.9503     0.8428         13        640: 79% ━━━━━━━━━─── 107/136 5.6it/s 16.4s<5.2s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6578     0.9458      0.842         16        640: 79% ━━━━━━━━━╸── 108/136 6.0it/s 16.6s<4.7s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6559     0.9414      0.842         15        640: 80% ━━━━━━━━━╸── 109/136 6.4it/s 16.7s<4.2s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6544     0.9357     0.8411          3        640: 81% ━━━━━━━━━╸── 110/136 6.5it/s 16.9s<4.0s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6523     0.9302     0.8424          2        640: 82% ━━━━━━━━━╸── 111/136 6.1it/s 17.1s<4.1s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6543     0.9259     0.8422          8        640: 82% ━━━━━━━━━╸── 112/136 6.7it/s 17.2s<3.6s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6538     0.9277     0.8426         34        640: 83% ━━━━━━━━━╸── 113/136 6.7it/s 17.3s<3.5s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6558     0.9265     0.8425         20        640: 84% ━━━━━━━━━━── 114/136 7.3it/s 17.4s<3.0s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G      0.654     0.9257     0.8419          1        640: 85% ━━━━━━━━━━── 115/136 7.6it/s 17.6s<2.8s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G      0.653     0.9216     0.8415          5        640: 85% ━━━━━━━━━━── 116/136 7.6it/s 17.7s<2.6s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6537     0.9186      0.841         16        640: 86% ━━━━━━━━━━── 117/136 7.6it/s 17.8s<2.5s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6558     0.9155     0.8413          2        640: 87% ━━━━━━━━━━── 118/136 7.6it/s 18.0s<2.4s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6558     0.9136     0.8409          6        640: 88% ━━━━━━━━━━── 119/136 7.7it/s 18.1s<2.2s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6619     0.9227     0.8415        140        640: 88% ━━━━━━━━━━╸─ 120/136 7.3it/s 18.2s<2.2s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6599     0.9171      0.841          3        640: 89% ━━━━━━━━━━╸─ 121/136 7.0it/s 18.4s<2.1s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6574     0.9132     0.8416          2        640: 90% ━━━━━━━━━━╸─ 122/136 7.1it/s 18.5s<2.0s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6558      0.911     0.8414         15        640: 90% ━━━━━━━━━━╸─ 123/136 7.3it/s 18.7s<1.8s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6531      0.909     0.8418          3        640: 91% ━━━━━━━━━━╸─ 124/136 7.0it/s 18.8s<1.7s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6531     0.9068     0.8412          6        640: 92% ━━━━━━━━━━━─ 125/136 7.2it/s 19.0s<1.5s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6532      0.905      0.842          1        640: 93% ━━━━━━━━━━━─ 126/136 7.0it/s 19.1s<1.4s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6539     0.9039     0.8433          6        640: 93% ━━━━━━━━━━━─ 127/136 6.5it/s 19.3s<1.4s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6548     0.9002      0.843         12        640: 94% ━━━━━━━━━━━─ 128/136 7.0it/s 19.4s<1.1s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6553     0.8973     0.8429         28        640: 95% ━━━━━━━━━━━─ 129/136 7.4it/s 19.5s<0.9s
+[92mINFO [0m:      aggregate_train: Received 3 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'metrics/precision(B)': 0.9331264623289498, 'metrics/recall(B)': 0.9602130811042084, 'metrics/mAP50(B)': 0.9763561838670265, 'metrics/mAP50-95(B)': 0.872869554717129, 'fitness': 0.872869554717129}
+[92mINFO [0m:      configure_evaluate: Sampled 2 nodes (out of 3)
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6544     0.8949     0.8431          6        640: 96% ━━━━━━━━━━━─ 130/136 7.5it/s 19.7s<0.8s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6509     0.8907     0.8422          1        640: 96% ━━━━━━━━━━━╸ 131/136 7.4it/s 19.8s<0.7s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G      0.651     0.8941      0.842         57        640: 97% ━━━━━━━━━━━╸ 132/136 7.3it/s 20.0s<0.5s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6503      0.891     0.8427         11        640: 98% ━━━━━━━━━━━╸ 133/136 7.5it/s 20.1s<0.4s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6481     0.8874     0.8429          3        640: 99% ━━━━━━━━━━━╸ 134/136 7.7it/s 20.2s<0.3s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.326G     0.6489      0.888     0.8442         13        640: 99% ━━━━━━━━━━━╸ 135/136 7.7it/s 20.3s<0.1s[K        1/1     0.326G     0.6489      0.888     0.8442         13        640: 100% ━━━━━━━━━━━━ 136/136 6.7it/s 20.3s[K        1/1     0.326G     0.6489      0.888     0.8442         13        640: 100% ━━━━━━━━━━━━ 136/136 6.7it/s 20.3s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 12% ━─────────── 2/17 3.0it/s 0.2s<4.9s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 18% ━━────────── 3/17 3.9it/s 0.4s<3.6s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 24% ━━╸───────── 4/17 4.5it/s 0.5s<2.9s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 35% ━━━━──────── 6/17 6.6it/s 0.7s<1.7s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 41% ━━━━╸─────── 7/17 7.0it/s 0.8s<1.4s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 47% ━━━━━╸────── 8/17 7.4it/s 1.0s<1.2s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 59% ━━━━━━━───── 10/17 9.8it/s 1.1s<0.7s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 71% ━━━━━━━━──── 12/17 10.1it/s 1.3s<0.5s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 82% ━━━━━━━━━╸── 14/17 12.0it/s 1.4s<0.3s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 94% ━━━━━━━━━━━─ 16/17 12.4it/s 1.5s<0.1s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 17/17 10.5it/s 1.6s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 17/17 10.5it/s 1.6s
+[36m(ClientAppActor pid=9843)[0m                    all         34        279      0.985      0.976      0.993      0.889
+[36m(ClientAppActor pid=9843)[0m 
+[36m(ClientAppActor pid=9843)[0m 1 epochs completed in 0.007 hours.
+[36m(ClientAppActor pid=9843)[0m Optimizer stripped from /home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_1/client_2/weights/last.pt, 6.2MB
+[36m(ClientAppActor pid=9843)[0m Optimizer stripped from /home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_1/client_2/weights/best.pt, 6.2MB
+[36m(ClientAppActor pid=9843)[0m 
+[36m(ClientAppActor pid=9843)[0m Validating /home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_1/client_2/weights/best.pt...
+[36m(ClientAppActor pid=9843)[0m Ultralytics 8.3.228 🚀 Python-3.10.19 torch-2.1.0+cu118 CUDA:0 (NVIDIA GeForce GTX 1080, 8192MiB)
+[36m(ClientAppActor pid=9843)[0m Model summary (fused): 72 layers, 3,006,038 parameters, 0 gradients, 8.1 GFLOPs
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 12% ━─────────── 2/17 5.0it/s 0.1s<3.0s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 24% ━━╸───────── 4/17 6.3it/s 0.3s<2.1s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 41% ━━━━╸─────── 7/17 12.4it/s 0.5s<0.8s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 59% ━━━━━━━───── 10/17 17.4it/s 0.6s<0.4s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 71% ━━━━━━━━──── 12/17 18.0it/s 0.7s<0.3s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 82% ━━━━━━━━━╸── 14/17 17.9it/s 0.8s<0.2s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 17/17 19.4it/s 0.9s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 17/17 19.4it/s 0.9s
+[36m(ClientAppActor pid=9843)[0m                    all         34        279      0.985      0.976      0.993       0.89
+[36m(ClientAppActor pid=9843)[0m Speed: 0.5ms preprocess, 13.2ms inference, 0.0ms loss, 3.9ms postprocess per image
+[36m(ClientAppActor pid=9843)[0m Results saved to [1m/home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_1/client_2[0m
+[36m(ClientAppActor pid=9843)[0m num samples in client train:  136
+[36m(ClientAppActor pid=9844)[0m Eval YAML file for client node 2, file path /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_2.yaml
+[36m(ClientAppActor pid=9843)[0m Ultralytics 8.3.228 🚀 Python-3.10.19 torch-2.1.0+cu118 CUDA:0 (NVIDIA GeForce GTX 1080, 8192MiB)
+[36m(ClientAppActor pid=9844)[0m Model summary (fused): 72 layers, 3,006,038 parameters, 0 gradients, 8.1 GFLOPs
+[36m(ClientAppActor pid=9844)[0m [34m[1mval: [0mFast image access ✅ (ping: 0.0±0.0 ms, read: 3890.6±332.1 MB/s, size: 1514.8 KB)
+[36m(ClientAppActor pid=9844)[0m [K[34m[1mval: [0mScanning /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_2/val/labels.cache... 34 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 34/34 5.1Mit/s 0.0s[K[34m[1mval: [0mScanning /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_2/val/labels.cache... 34 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 34/34 430.8Kit/s 0.0s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 7.4s/it 2.2s<14.8s
+[92mINFO [0m:      aggregate_evaluate: Received 2 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'metrics/precision(B)': 0.9360124831257957, 'metrics/recall(B)': 0.954776464436628, 'metrics/mAP50(B)': 0.9792852935063046, 'metrics/mAP50-95(B)': 0.8769538403512079, 'fitness': 0.8769538403512079}
+[92mINFO [0m:      Global evaluation
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 67% ━━━━━━━━──── 2/3 4.1s/it 4.3s<4.1s
+[36m(ClientAppActor pid=9843)[0m Eval YAML file for client node 0, file path /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_0.yaml
+[36m(ClientAppActor pid=9844)[0m Ultralytics 8.3.228 🚀 Python-3.10.19 torch-2.1.0+cu118 CUDA:0 (NVIDIA GeForce GTX 1080, 8192MiB)
+[36m(ClientAppActor pid=9843)[0m Model summary (fused): 72 layers, 3,006,038 parameters, 0 gradients, 8.1 GFLOPs
+[36m(ClientAppActor pid=9843)[0m [34m[1mval: [0mFast image access ✅ (ping: 0.0±0.0 ms, read: 925.8±116.6 MB/s, size: 1670.1 KB)
+[36m(ClientAppActor pid=9843)[0m [K[34m[1mval: [0mScanning /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_0/val/labels.cache... 34 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 34/34 4.9Mit/s 0.0s[K[34m[1mval: [0mScanning /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_0/val/labels.cache... 34 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 34/34 361.9Kit/s 0.0s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 1.9s/it 5.7s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 1.9s/it 5.7s
+[36m(ClientAppActor pid=9843)[0m                    all         34        296      0.896      0.924      0.965      0.851
+[36m(ClientAppActor pid=9843)[0m                 plasma         34         99      0.954       0.99      0.994      0.952
+[36m(ClientAppActor pid=9843)[0m             non_plasma         25        197      0.839      0.858      0.936      0.749
+[36m(ClientAppActor pid=9843)[0m Speed: 16.4ms preprocess, 48.5ms inference, 0.0ms loss, 7.8ms postprocess per image
+[36m(ClientAppActor pid=9843)[0m Results saved to [1m/home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/val/round_1/client_0[0m
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 12.5s/it 3.7s<24.9s
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 67% ━━━━━━━━──── 2/3 5.1s/it 5.9s<5.1s
+[36m(ClientAppActor pid=9843)[0m num samples in client validation:  34
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 2.3s/it 7.0s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 2.3s/it 7.0s
+Model summary (fused): 72 layers, 3,006,038 parameters, 0 gradients, 8.1 GFLOPs
+[34m[1mval: [0mFast image access ✅ (ping: 0.0±0.0 ms, read: 1602.7±373.3 MB/s, size: 2309.1 KB)
+[K[34m[1mval: [0mScanning /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/patients/patient 01/labels.cache... 34 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 34/34 5.7Mit/s 0.0s[K[34m[1mval: [0mScanning /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/patients/patient 01/labels.cache... 34 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 34/34 428.2Kit/s 0.0s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 10.0s/it 3.0s<20.0s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 67% ━━━━━━━━──── 2/3 2.4s/it 3.8s<2.4s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 1.4s/it 4.1s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 1.4s/it 4.1s
+                   all         34        202      0.764      0.857      0.861      0.742
+                plasma         30         82      0.769      0.852      0.839      0.733
+            non_plasma         32        120      0.758      0.862      0.883      0.752
+Speed: 9.4ms preprocess, 11.0ms inference, 0.0ms loss, 4.3ms postprocess per image
+Results saved to [1m/home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/val/round_1/server[0m
+[92mINFO [0m:      	└──> MetricRecord: {'metrics/precision(B)': 0.7635312971887032, 'metrics/recall(B)': 0.8571124402453478, 'metrics/mAP50(B)': 0.8608937079689346, 'metrics/mAP50-95(B)': 0.7423215897937664, 'fitness': 0.7423215897937664, 'num-examples': 34}
+[92mINFO [0m:      New best global model found: 0.742322
+[92mINFO [0m:      💾 New best model saved to disk: /home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/server_aggregated_results/yolo_best_acc_0.7423215897937664_round_1.pt
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 2/2]
+[92mINFO [0m:      configure_train: Sampled 3 nodes (out of 3)
+num samples in client validation:  34
+[36m(ClientAppActor pid=9843)[0m {'partition-id': 1, 'num-partitions': 3}
+[36m(ClientAppActor pid=9843)[0m {'num-server-rounds': 2, 'fraction-evaluate': 0.2, 'local-epochs': 1, 'learning-rate': 0.001, 'batch-size': 1, 'num-clients': 3, 'run-partitioner': 1}
+[36m(ClientAppActor pid=9843)[0m Configs:  {'lr': 0.001, 'local-epochs': 1, 'batch-size': 1, 'dataset-base': '/home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower', 'server-round': 2}
+[36m(ClientAppActor pid=9843)[0m Train YAML file for client node 1, file path /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_1.yaml
+[36m(ClientAppActor pid=9844)[0m New https://pypi.org/project/ultralytics/8.3.235 available 😃 Update with 'pip install -U ultralytics'
+[36m(ClientAppActor pid=9844)[0m Ultralytics 8.3.228 🚀 Python-3.10.19 torch-2.1.0+cu118 CUDA:0 (NVIDIA GeForce GTX 1080, 8192MiB)
+[36m(ClientAppActor pid=9844)[0m [34m[1mengine/trainer: [0magnostic_nms=False, amp=True, augment=False, auto_augment=randaugment, batch=1, bgr=0.0, box=7.5, cache=False, cfg=None, classes=None, close_mosaic=10, cls=0.5, compile=False, conf=None, copy_paste=0.0, copy_paste_mode=flip, cos_lr=False, cutmix=0.0, data=/home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_0.yaml, degrees=0.0, deterministic=True, device=0, dfl=1.5, dnn=False, dropout=0.0, dynamic=False, embed=None, epochs=1, erasing=0.4, exist_ok=False, fliplr=0.5, flipud=0.0, format=torchscript, fraction=1.0, freeze=None, half=False, hsv_h=0.015, hsv_s=0.7, hsv_v=0.4, imgsz=640, int8=False, iou=0.7, keras=False, kobj=1.0, line_width=None, lr0=0.01, lrf=0.01, mask_ratio=4, max_det=300, mixup=0.0, mode=train, model=pretrained_models/pmmdc_300epochs/best.pt, momentum=0.937, mosaic=1.0, multi_scale=False, name=client_0, nbs=64, nms=False, opset=None, optimize=False, optimizer=auto, overlap_mask=True, patience=100, perspective=0.0, plots=True, pose=12.0, pretrained=True, profile=False, project=/home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_2, rect=False, resume=False, retina_masks=False, save=True, save_conf=False, save_crop=False, save_dir=/home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_2/client_0, save_frames=False, save_json=False, save_period=-1, save_txt=False, scale=0.5, seed=0, shear=0.0, show=False, show_boxes=True, show_conf=True, show_labels=True, simplify=True, single_cls=False, source=None, split=val, stream_buffer=False, task=detect, time=None, tracker=botsort.yaml, translate=0.1, val=True, verbose=False, vid_stride=1, visualize=False, warmup_bias_lr=0.1, warmup_epochs=3.0, warmup_momentum=0.8, weight_decay=0.0005, workers=8, workspace=None
+[36m(ClientAppActor pid=9844)[0m 
+[36m(ClientAppActor pid=9844)[0m                    from  n    params  module                                       arguments                     
+[36m(ClientAppActor pid=9844)[0m   0                  -1  1       464  ultralytics.nn.modules.conv.Conv             [3, 16, 3, 2]                 
+[36m(ClientAppActor pid=9844)[0m   1                  -1  1      4672  ultralytics.nn.modules.conv.Conv             [16, 32, 3, 2]                
+[36m(ClientAppActor pid=9844)[0m   2                  -1  1      7360  ultralytics.nn.modules.block.C2f             [32, 32, 1, True]             
+[36m(ClientAppActor pid=9844)[0m   3                  -1  1     18560  ultralytics.nn.modules.conv.Conv             [32, 64, 3, 2]                
+[36m(ClientAppActor pid=9844)[0m   4                  -1  2     49664  ultralytics.nn.modules.block.C2f             [64, 64, 2, True]             
+[36m(ClientAppActor pid=9844)[0m   5                  -1  1     73984  ultralytics.nn.modules.conv.Conv             [64, 128, 3, 2]               
+[36m(ClientAppActor pid=9844)[0m   6                  -1  2    197632  ultralytics.nn.modules.block.C2f             [128, 128, 2, True]           
+[36m(ClientAppActor pid=9844)[0m   7                  -1  1    295424  ultralytics.nn.modules.conv.Conv             [128, 256, 3, 2]              
+[36m(ClientAppActor pid=9844)[0m   8                  -1  1    460288  ultralytics.nn.modules.block.C2f             [256, 256, 1, True]           
+[36m(ClientAppActor pid=9844)[0m   9                  -1  1    164608  ultralytics.nn.modules.block.SPPF            [256, 256, 5]                 
+[36m(ClientAppActor pid=9844)[0m  10                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+[36m(ClientAppActor pid=9844)[0m  11             [-1, 6]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+[36m(ClientAppActor pid=9844)[0m  12                  -1  1    148224  ultralytics.nn.modules.block.C2f             [384, 128, 1]                 
+[36m(ClientAppActor pid=9844)[0m  13                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+[36m(ClientAppActor pid=9844)[0m  14             [-1, 4]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+[36m(ClientAppActor pid=9844)[0m  15                  -1  1     37248  ultralytics.nn.modules.block.C2f             [192, 64, 1]                  
+[36m(ClientAppActor pid=9844)[0m  16                  -1  1     36992  ultralytics.nn.modules.conv.Conv             [64, 64, 3, 2]                
+[36m(ClientAppActor pid=9844)[0m  17            [-1, 12]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+[36m(ClientAppActor pid=9844)[0m  18                  -1  1    123648  ultralytics.nn.modules.block.C2f             [192, 128, 1]                 
+[36m(ClientAppActor pid=9844)[0m  19                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]              
+[36m(ClientAppActor pid=9844)[0m  20             [-1, 9]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+[36m(ClientAppActor pid=9844)[0m  21                  -1  1    493056  ultralytics.nn.modules.block.C2f             [384, 256, 1]                 
+[36m(ClientAppActor pid=9844)[0m  22        [15, 18, 21]  1    751702  ultralytics.nn.modules.head.Detect           [2, [64, 128, 256]]           
+[36m(ClientAppActor pid=9844)[0m                    all         34        279      0.976      0.986      0.994      0.903
+[36m(ClientAppActor pid=9844)[0m                 plasma         34         87      0.972          1      0.994      0.948
+[36m(ClientAppActor pid=9844)[0m             non_plasma         27        192      0.979      0.971      0.993      0.859
+[36m(ClientAppActor pid=9844)[0m Speed: 16.5ms preprocess, 37.5ms inference, 0.0ms loss, 11.9ms postprocess per image
+[36m(ClientAppActor pid=9844)[0m Results saved to [1m/home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/val/round_1/client_2[0m
+[36m(ClientAppActor pid=9844)[0m num samples in client validation:  34
+[36m(ClientAppActor pid=9844)[0m {'partition-id': 0, 'num-partitions': 3}
+[36m(ClientAppActor pid=9844)[0m {'num-server-rounds': 2, 'fraction-evaluate': 0.2, 'local-epochs': 1, 'learning-rate': 0.001, 'batch-size': 1, 'num-clients': 3, 'run-partitioner': 1}
+[36m(ClientAppActor pid=9844)[0m Configs:  {'lr': 0.001, 'local-epochs': 1, 'batch-size': 1, 'dataset-base': '/home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower', 'server-round': 2}
+[36m(ClientAppActor pid=9844)[0m Train YAML file for client node 0, file path /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_0.yaml
+[36m(ClientAppActor pid=9843)[0m 
+[36m(ClientAppActor pid=9843)[0m  12                  -1  1    148224  ultralytics.nn.modules.block.C2f             [384, 128, 1]                 
+[36m(ClientAppActor pid=9843)[0m  15                  -1  1     37248  ultralytics.nn.modules.block.C2f             [192, 64, 1]                  
+[36m(ClientAppActor pid=9843)[0m  18                  -1  1    123648  ultralytics.nn.modules.block.C2f             [192, 128, 1]                 
+[36m(ClientAppActor pid=9843)[0m  21                  -1  1    493056  ultralytics.nn.modules.block.C2f             [384, 256, 1]                 
+[36m(ClientAppActor pid=9844)[0m Model summary: 129 layers, 3,011,238 parameters, 3,011,222 gradients, 8.2 GFLOPs
+[36m(ClientAppActor pid=9844)[0m 
+[36m(ClientAppActor pid=9844)[0m Transferred 355/355 items from pretrained weights
+[36m(ClientAppActor pid=9844)[0m Freezing layer 'model.22.dfl.conv.weight'
+[36m(ClientAppActor pid=9844)[0m [34m[1mAMP: [0mrunning Automatic Mixed Precision (AMP) checks...
+[36m(ClientAppActor pid=9843)[0m 
+[36m(ClientAppActor pid=9844)[0m [34m[1mAMP: [0mchecks passed ✅
+[36m(ClientAppActor pid=9844)[0m [34m[1mtrain: [0mFast image access ✅ (ping: 0.0±0.0 ms, read: 902.2±234.7 MB/s, size: 1633.4 KB)
+[36m(ClientAppActor pid=9844)[0m [K[34m[1mtrain: [0mScanning /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_0/train/labels.cache... 136 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 136/136 13.3Mit/s 0.0s[K[34m[1mtrain: [0mScanning /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_0/train/labels.cache... 136 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 136/136 1.1Mit/s 0.0s
+[36m(ClientAppActor pid=9844)[0m [34m[1mval: [0mFast image access ✅ (ping: 0.0±0.0 ms, read: 1242.9±1567.2 MB/s, size: 1580.8 KB)
+[36m(ClientAppActor pid=9844)[0m [K[34m[1mval: [0mScanning /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_0/val/labels.cache... 34 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 34/34 1.4Mit/s 0.0s[K[34m[1mval: [0mScanning /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_0/val/labels.cache... 34 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 34/34 215.4Kit/s 0.0s
+[36m(ClientAppActor pid=9844)[0m Plotting labels to /home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_2/client_0/labels.jpg... 
+[36m(ClientAppActor pid=9844)[0m [34m[1moptimizer:[0m 'optimizer=auto' found, ignoring 'lr0=0.01' and 'momentum=0.937' and determining best 'optimizer', 'lr0' and 'momentum' automatically... 
+[36m(ClientAppActor pid=9844)[0m [34m[1moptimizer:[0m AdamW(lr=0.001667, momentum=0.9) with parameter groups 57 weight(decay=0.0), 64 weight(decay=0.0005), 63 bias(decay=0.0)
+[36m(ClientAppActor pid=9844)[0m Image sizes 640 train, 640 val
+[36m(ClientAppActor pid=9844)[0m Using 4 dataloader workers
+[36m(ClientAppActor pid=9844)[0m Logging results to [1m/home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_2/client_0[0m
+[36m(ClientAppActor pid=9844)[0m Starting training for 1 epochs...
+[36m(ClientAppActor pid=9844)[0m 
+[36m(ClientAppActor pid=9844)[0m       Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+[36m(ClientAppActor pid=9843)[0m 
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.643G     0.9437      0.475     0.7637          8        640: 0% ──────────── 0/136  0.3s
+[36m(ClientAppActor pid=9843)[0m New https://pypi.org/project/ultralytics/8.3.235 available 😃 Update with 'pip install -U ultralytics'
+[36m(ClientAppActor pid=9843)[0m Ultralytics 8.3.228 🚀 Python-3.10.19 torch-2.1.0+cu118 CUDA:0 (NVIDIA GeForce GTX 1080, 8192MiB)
+[36m(ClientAppActor pid=9843)[0m [34m[1mengine/trainer: [0magnostic_nms=False, amp=True, augment=False, auto_augment=randaugment, batch=1, bgr=0.0, box=7.5, cache=False, cfg=None, classes=None, close_mosaic=10, cls=0.5, compile=False, conf=None, copy_paste=0.0, copy_paste_mode=flip, cos_lr=False, cutmix=0.0, data=/home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_1.yaml, degrees=0.0, deterministic=True, device=0, dfl=1.5, dnn=False, dropout=0.0, dynamic=False, embed=None, epochs=1, erasing=0.4, exist_ok=False, fliplr=0.5, flipud=0.0, format=torchscript, fraction=1.0, freeze=None, half=False, hsv_h=0.015, hsv_s=0.7, hsv_v=0.4, imgsz=640, int8=False, iou=0.7, keras=False, kobj=1.0, line_width=None, lr0=0.01, lrf=0.01, mask_ratio=4, max_det=300, mixup=0.0, mode=train, model=pretrained_models/pmmdc_300epochs/best.pt, momentum=0.937, mosaic=1.0, multi_scale=False, name=client_1, nbs=64, nms=False, opset=None, optimize=False, optimizer=auto, overlap_mask=True, patience=100, perspective=0.0, plots=True, pose=12.0, pretrained=True, profile=False, project=/home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_2, rect=False, resume=False, retina_masks=False, save=True, save_conf=False, save_crop=False, save_dir=/home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_2/client_1, save_frames=False, save_json=False, save_period=-1, save_txt=False, scale=0.5, seed=0, shear=0.0, show=False, show_boxes=True, show_conf=True, show_labels=True, simplify=True, single_cls=False, source=None, split=val, stream_buffer=False, task=detect, time=None, tracker=botsort.yaml, translate=0.1, val=True, verbose=False, vid_stride=1, visualize=False, warmup_bias_lr=0.1, warmup_epochs=3.0, warmup_momentum=0.8, weight_decay=0.0005, workers=8, workspace=None
+[36m(ClientAppActor pid=9843)[0m                    from  n    params  module                                       arguments                     
+[36m(ClientAppActor pid=9843)[0m  19                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]              [32m [repeated 7x across cluster][0m
+[36m(ClientAppActor pid=9843)[0m   8                  -1  1    460288  ultralytics.nn.modules.block.C2f             [256, 256, 1, True]           [32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=9843)[0m   9                  -1  1    164608  ultralytics.nn.modules.block.SPPF            [256, 256, 5]                 
+[36m(ClientAppActor pid=9843)[0m  13                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          [32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=9843)[0m  20             [-1, 9]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           [32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=9843)[0m  22        [15, 18, 21]  1    751702  ultralytics.nn.modules.head.Detect           [2, [64, 128, 256]]           
+[36m(ClientAppActor pid=9843)[0m Model summary: 129 layers, 3,011,238 parameters, 3,011,222 gradients, 8.2 GFLOPs
+[36m(ClientAppActor pid=9843)[0m Transferred 355/355 items from pretrained weights
+[36m(ClientAppActor pid=9843)[0m Freezing layer 'model.22.dfl.conv.weight'
+[36m(ClientAppActor pid=9843)[0m [34m[1mAMP: [0mrunning Automatic Mixed Precision (AMP) checks...
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.674G     0.6298     0.4075     0.8628          3        640: 4% ╸─────────── 6/136 4.5it/s 1.6s<28.6s
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.674G       0.61      0.399     0.8598          5        640: 5% ╸─────────── 7/136 4.6it/s 1.8s<28.0s
+[36m(ClientAppActor pid=9843)[0m [34m[1mAMP: [0mchecks passed ✅
+[36m(ClientAppActor pid=9843)[0m [34m[1mval: [0mFast image access ✅ (ping: 0.0±0.0 ms, read: 192.3±169.5 MB/s, size: 1732.5 KB)[32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=9843)[0m [K[34m[1mval: [0mScanning /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_1/val/labels.cache... 34 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 34/34 885.8Kit/s 0.0s[K[34m[1mval: [0mScanning /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_1/val/labels.cache... 34 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 34/34 165.2Kit/s 0.0s[32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.674G     0.5898     0.3818     0.8481          2        640: 6% ╸─────────── 8/136 4.4it/s 2.1s<29.1s
+[36m(ClientAppActor pid=9843)[0m Plotting labels to /home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_2/client_1/labels.jpg... 
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.676G     0.5537     0.4548     0.8666          5        640: 9% ━─────────── 12/136 4.8it/s 2.9s<25.8s
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.676G     0.5426      0.453     0.8614         11        640: 10% ━─────────── 13/136 4.6it/s 3.2s<26.5s
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.676G     0.5268     0.4391     0.8563          2        640: 10% ━─────────── 14/136 5.1it/s 3.3s<23.8s
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.676G      0.543     0.4435     0.8535          2        640: 13% ━╸────────── 18/136 5.3it/s 4.2s<22.1s
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.676G     0.5334     0.4352     0.8524          4        640: 14% ━╸────────── 19/136 4.8it/s 4.4s<24.2s
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.676G     0.5451     0.4368     0.8524         15        640: 15% ━╸────────── 20/136 4.7it/s 4.7s<24.7s
+[36m(ClientAppActor pid=9843)[0m [34m[1moptimizer:[0m 'optimizer=auto' found, ignoring 'lr0=0.01' and 'momentum=0.937' and determining best 'optimizer', 'lr0' and 'momentum' automatically... 
+[36m(ClientAppActor pid=9843)[0m [34m[1moptimizer:[0m AdamW(lr=0.001667, momentum=0.9) with parameter groups 57 weight(decay=0.0), 64 weight(decay=0.0005), 63 bias(decay=0.0)
+[36m(ClientAppActor pid=9843)[0m Image sizes 640 train, 640 val
+[36m(ClientAppActor pid=9843)[0m Using 4 dataloader workers
+[36m(ClientAppActor pid=9843)[0m Logging results to [1m/home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_2/client_1[0m
+[36m(ClientAppActor pid=9843)[0m Starting training for 1 epochs...
+[36m(ClientAppActor pid=9843)[0m       Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.678G       0.53     0.4564     0.8553          1        640: 17% ━━────────── 23/136 4.5it/s 5.3s<25.3s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.705G     0.5078        1.2     0.8559          2        640: 4% ──────────── 5/136 3.0it/s 1.8s<43.3s[32m [repeated 11x across cluster][0m
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.678G     0.5242      0.449      0.855          6        640: 18% ━━────────── 24/136 4.4it/s 5.6s<25.2s
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.678G     0.5405     0.4428     0.8514          7        640: 21% ━━╸───────── 29/136 4.2it/s 6.7s<25.7s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.709G     0.7572      1.084      1.058          9        640: 8% ╸─────────── 11/136 4.4it/s 3.2s<28.3s[32m [repeated 9x across cluster][0m
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.678G     0.5518     0.4433       0.85          7        640: 22% ━━╸───────── 30/136 4.1it/s 7.0s<26.2s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.711G     0.6614     0.8606     0.9871         25        640: 12% ━─────────── 17/136 5.6it/s 4.4s<21.2s[32m [repeated 9x across cluster][0m
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.678G     0.5477     0.4357     0.8424          2        640: 25% ━━━───────── 34/136 3.5it/s 8.2s<28.9s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.711G     0.6074     0.7745      0.959          6        640: 16% ━╸────────── 22/136 5.5it/s 5.4s<20.6s[32m [repeated 7x across cluster][0m
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.678G      0.545     0.4392     0.8406          4        640: 29% ━━━╸──────── 40/136 4.6it/s 9.4s<20.7s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.711G     0.5855     0.7223     0.9111          5        640: 21% ━━────────── 28/136 5.4it/s 6.6s<20.1s[32m [repeated 10x across cluster][0m
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.678G     0.5284      0.623     0.8216          0        640: 34% ━━━━──────── 46/136 5.3it/s 10.7s<16.9s
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.678G      0.529     0.8406     0.8042         39        640: 38% ━━━━╸─────── 52/136 5.8it/s 11.8s<14.6s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.711G     0.5901     0.6837     0.8809          0        640: 24% ━━╸───────── 33/136 5.1it/s 7.7s<20.2s[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.678G     0.5301     0.8323     0.8027          4        640: 39% ━━━━╸─────── 53/136 6.1it/s 11.9s<13.6s
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.678G     0.5242     0.8056     0.8031          5        640: 42% ━━━━━─────── 57/136 5.2it/s 12.8s<15.2s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.711G     0.5822     0.6448     0.8709          8        640: 29% ━━━───────── 39/136 4.2it/s 9.2s<23.0s[32m [repeated 11x across cluster][0m
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.711G     0.5567     0.6134     0.8516          2        640: 46% ━━━━━╸────── 63/136 5.9it/s 13.8s<12.5s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.711G     0.5481     0.6088     0.8385          0        640: 47% ━━━━━╸────── 64/136 7.1it/s 13.9s<10.2s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.711G     0.5749      0.617      0.878          3        640: 33% ━━━╸──────── 45/136 4.9it/s 10.5s<18.5s[32m [repeated 11x across cluster][0m
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.711G     0.5529     0.6017     0.8408          8        640: 50% ━━━━━━────── 68/136 5.7it/s 14.7s<11.9s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.711G     0.5525     0.5984      0.841          5        640: 51% ━━━━━━────── 69/136 5.5it/s 14.9s<12.1s
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.678G     0.5268     0.8354      0.803          7        640: 38% ━━━━──────── 51/136 5.5it/s 11.6s<15.6s[32m [repeated 11x across cluster][0m
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.711G     0.5535     0.5907     0.8386         21        640: 54% ━━━━━━╸───── 74/136 5.7it/s 15.9s<10.9s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.711G     0.5528     0.6364     0.8546          9        640: 41% ━━━━╸─────── 56/136 5.7it/s 12.4s<14.0s[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.678G     0.5654     0.7547     0.7974         28        640: 59% ━━━━━━━───── 80/136 6.4it/s 17.2s<8.8s
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.678G      0.553     0.7883     0.8057          8        640: 46% ━━━━━─────── 62/136 4.2it/s 14.0s<17.7s[32m [repeated 11x across cluster][0m
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.678G     0.5636     0.7392      0.801          1        640: 63% ━━━━━━━╸──── 86/136 5.3it/s 18.5s<9.3s
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.678G      0.543      0.768     0.7922          8        640: 49% ━━━━━╸────── 67/136 5.8it/s 14.8s<11.9s[32m [repeated 8x across cluster][0m
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.678G     0.5732     0.7321     0.8037          3        640: 67% ━━━━━━━━──── 91/136 5.0it/s 19.5s<9.0s
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.678G     0.5495     0.7695     0.7966         35        640: 54% ━━━━━━────── 73/136 5.4it/s 16.0s<11.7s[32m [repeated 10x across cluster][0m
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.678G     0.5824     0.7241     0.8045         67        640: 71% ━━━━━━━━╸─── 97/136 5.8it/s 20.5s<6.7s
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.678G     0.5856     0.7237     0.8044         13        640: 72% ━━━━━━━━╸─── 98/136 5.5it/s 20.8s<6.9s
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.678G     0.5882     0.7242     0.8066          4        640: 73% ━━━━━━━━╸─── 99/136 5.7it/s 20.9s<6.5s
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.678G     0.5587     0.7506     0.7963         21        640: 58% ━━━━━━╸───── 79/136 6.2it/s 17.1s<9.2s[32m [repeated 11x across cluster][0m
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.678G      0.584     0.7134     0.8024          3        640: 75% ━━━━━━━━━─── 102/136 6.2it/s 21.4s<5.5s
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.678G     0.5842     0.7125     0.8027         17        640: 76% ━━━━━━━━━─── 103/136 5.6it/s 21.6s<5.9s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.711G      0.571     0.5858     0.8414         17        640: 62% ━━━━━━━───── 85/136 4.7it/s 18.2s<10.9s[32m [repeated 11x across cluster][0m
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.678G     0.5948     0.7124     0.8093         29        640: 79% ━━━━━━━━━╸── 108/136 5.4it/s 22.8s<5.2s
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.678G     0.5935     0.7108     0.8096          7        640: 80% ━━━━━━━━━╸── 109/136 5.5it/s 22.9s<4.9s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.711G     0.5691      0.577     0.8395          6        640: 66% ━━━━━━━╸──── 90/136 4.7it/s 19.3s<9.7s[32m [repeated 9x across cluster][0m
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.678G     0.6078     0.7423     0.8182         15        640: 84% ━━━━━━━━━━── 114/136 5.2it/s 24.0s<4.2s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.711G     0.5723     0.5718     0.8401         10        640: 71% ━━━━━━━━──── 96/136 5.1it/s 20.6s<7.8s[32m [repeated 11x across cluster][0m
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.711G     0.5995     0.6255     0.8478         34        640: 88% ━━━━━━━━━━╸─ 120/136 4.9it/s 25.2s<3.3s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.711G     0.5751      0.605     0.8408         37        640: 74% ━━━━━━━━╸─── 101/136 5.7it/s 21.6s<6.1s[32m [repeated 7x across cluster][0m
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.711G     0.6143      0.654     0.8535          4        640: 92% ━━━━━━━━━━━─ 125/136 5.1it/s 26.2s<2.2s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.711G      0.578     0.6035     0.8417          6        640: 79% ━━━━━━━━━─── 107/136 5.9it/s 22.7s<4.9s[32m [repeated 10x across cluster][0m
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.711G     0.6226     0.6577     0.8607          2        640: 96% ━━━━━━━━━━━╸ 131/136 5.5it/s 27.3s<0.9s
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.678G     0.6054     0.7423     0.8183         15        640: 83% ━━━━━━━━━╸── 113/136 5.0it/s 23.8s<4.6s[32m [repeated 10x across cluster][0m
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.711G     0.6255      0.659     0.8602          7        640: 99% ━━━━━━━━━━━╸ 135/136 5.3it/s 28.0s<0.2s[K        1/1     0.711G     0.6255      0.659     0.8602          7        640: 100% ━━━━━━━━━━━━ 136/136 4.8it/s 28.0s[K        1/1     0.711G     0.6255      0.659     0.8602          7        640: 100% ━━━━━━━━━━━━ 136/136 4.8it/s 28.0s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 6% ╸─────────── 1/17 2.9it/s 0.1s<5.5s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 12% ━─────────── 2/17 3.8it/s 0.3s<4.0s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 18% ━━────────── 3/17 3.4it/s 0.7s<4.1s
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.678G      0.604     0.7315     0.8164          7        640: 88% ━━━━━━━━━━── 119/136 3.9it/s 25.4s<4.3s[32m [repeated 11x across cluster][0m
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 24% ━━╸───────── 4/17 3.9it/s 0.9s<3.4s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 35% ━━━━──────── 6/17 6.3it/s 1.0s<1.7s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 41% ━━━━╸─────── 7/17 6.9it/s 1.1s<1.4s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 47% ━━━━━╸────── 8/17 7.6it/s 1.3s<1.2s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 59% ━━━━━━━───── 10/17 8.4it/s 1.5s<0.8s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 65% ━━━━━━━╸──── 11/17 7.9it/s 1.6s<0.8s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 71% ━━━━━━━━──── 12/17 6.9it/s 1.8s<0.7s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 82% ━━━━━━━━━╸── 14/17 8.6it/s 2.0s<0.3s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 88% ━━━━━━━━━━╸─ 15/17 8.2it/s 2.1s<0.2s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 94% ━━━━━━━━━━━─ 16/17 7.7it/s 2.3s<0.1s
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.678G     0.6063     0.7309     0.8181         11        640: 91% ━━━━━━━━━━╸─ 124/136 5.0it/s 26.3s<2.4s[32m [repeated 9x across cluster][0m
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 17/17 7.2it/s 2.4s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 17/17 7.2it/s 2.4s
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 94% ━━━━━━━━━━━─ 16/17 7.5it/s 2.8s<0.1s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 17/17 5.9it/s 2.9s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 17/17 5.9it/s 2.9s
+[36m(ClientAppActor pid=9843)[0m                    all         34        207      0.949      0.987      0.993        0.9
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.678G     0.6045     0.7394     0.8119          1        640: 96% ━━━━━━━━━━━─ 130/136 5.2it/s 27.4s<1.2s[32m [repeated 10x across cluster][0m
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.678G     0.6068     0.7361     0.8141          3        640: 99% ━━━━━━━━━━━╸ 134/136 5.5it/s 28.2s<0.4s[32m [repeated 7x across cluster][0m
+[36m(ClientAppActor pid=9843)[0m 
+[36m(ClientAppActor pid=9843)[0m 1 epochs completed in 0.009 hours.
+[36m(ClientAppActor pid=9844)[0m [K        1/1     0.678G     0.6071     0.7403     0.8151         14        640: 99% ━━━━━━━━━━━╸ 135/136 4.9it/s 28.4s<0.2s[K        1/1     0.678G     0.6071     0.7403     0.8151         14        640: 100% ━━━━━━━━━━━━ 136/136 4.8it/s 28.4s[K        1/1     0.678G     0.6071     0.7403     0.8151         14        640: 100% ━━━━━━━━━━━━ 136/136 4.8it/s 28.4s
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 6% ╸─────────── 1/17 2.9it/s 0.1s<5.6s
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 12% ━─────────── 2/17 2.9it/s 0.4s<5.1s
+[36m(ClientAppActor pid=9843)[0m Optimizer stripped from /home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_2/client_1/weights/last.pt, 6.2MB
+[36m(ClientAppActor pid=9843)[0m Optimizer stripped from /home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_2/client_1/weights/best.pt, 6.2MB
+[36m(ClientAppActor pid=9843)[0m 
+[36m(ClientAppActor pid=9843)[0m Validating /home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_2/client_1/weights/best.pt...
+[36m(ClientAppActor pid=9843)[0m Ultralytics 8.3.228 🚀 Python-3.10.19 torch-2.1.0+cu118 CUDA:0 (NVIDIA GeForce GTX 1080, 8192MiB)
+[36m(ClientAppActor pid=9843)[0m Model summary (fused): 72 layers, 3,006,038 parameters, 0 gradients, 8.1 GFLOPs
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 12% ━─────────── 2/17 3.0it/s 0.2s<5.0s
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 18% ━━────────── 3/17 2.8it/s 0.8s<5.0s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 18% ━━────────── 3/17 4.1it/s 0.3s<3.4s
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 24% ━━╸───────── 4/17 3.3it/s 1.0s<3.9s
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 35% ━━━━──────── 6/17 3.7it/s 1.5s<3.0s
+[36m(ClientAppActor pid=9844)[0m 
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 24% ━━╸───────── 4/17 4.5it/s 0.5s<2.9s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 29% ━━━╸──────── 5/17 5.2it/s 0.7s<2.3s
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 47% ━━━━━╸────── 8/17 6.6it/s 1.6s<1.4s
+[36m(ClientAppActor pid=9844)[0m 
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 59% ━━━━━━━───── 10/17 6.5it/s 2.0s<1.1s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 47% ━━━━━╸────── 8/17 8.6it/s 0.9s<1.0s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 53% ━━━━━━────── 9/17 8.1it/s 1.0s<1.0s
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 65% ━━━━━━━╸──── 11/17 5.9it/s 2.2s<1.0s
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 6% ╸─────────── 1/17 3.0it/s 0.1s<5.4s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 65% ━━━━━━━╸──── 11/17 10.1it/s 1.1s<0.6s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 71% ━━━━━━━━──── 12/17 9.3it/s 1.3s<0.5s[32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 82% ━━━━━━━━━╸── 14/17 7.3it/s 2.5s<0.4s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 82% ━━━━━━━━━╸── 14/17 9.8it/s 1.5s<0.3s
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 88% ━━━━━━━━━━╸─ 15/17 6.9it/s 2.7s<0.3s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 88% ━━━━━━━━━━╸─ 15/17 9.0it/s 1.6s<0.2s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 17/17 9.4it/s 1.8s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 17/17 9.4it/s 1.8s
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 35% ━━━━──────── 6/17 7.2it/s 1.1s<1.5s
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 76% ━━━━━━━━━─── 13/17 14.6it/s 1.5s<0.3s
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 17/17 9.9it/s 1.7s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 17/17 9.9it/s 1.7s
+[36m(ClientAppActor pid=9843)[0m Speed: 1.1ms preprocess, 29.6ms inference, 0.0ms loss, 6.6ms postprocess per image
+[36m(ClientAppActor pid=9843)[0m Results saved to [1m/home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_2/client_1[0m
+[36m(ClientAppActor pid=9843)[0m                    all         34        207      0.949      0.987      0.993        0.9[32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=9844)[0m 1 epochs completed in 0.010 hours.
+[36m(ClientAppActor pid=9844)[0m Optimizer stripped from /home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_2/client_0/weights/best.pt, 6.2MB[32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=9844)[0m Validating /home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_2/client_0/weights/best.pt...
+[36m(ClientAppActor pid=9844)[0m Ultralytics 8.3.228 🚀 Python-3.10.19 torch-2.1.0+cu118 CUDA:0 (NVIDIA GeForce GTX 1080, 8192MiB)
+[36m(ClientAppActor pid=9844)[0m Model summary (fused): 72 layers, 3,006,038 parameters, 0 gradients, 8.1 GFLOPs
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 12% ━─────────── 2/17 3.6it/s 0.3s<4.2s
+[36m(ClientAppActor pid=9843)[0m num samples in client train:  136
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 18% ━━────────── 3/17 3.6it/s 0.6s<3.9s
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 24% ━━╸───────── 4/17 3.2it/s 1.0s<4.0s
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 53% ━━━━━━────── 9/17 13.9it/s 1.2s<0.6s
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 65% ━━━━━━━╸──── 11/17 14.7it/s 1.3s<0.4s
+[36m(ClientAppActor pid=9843)[0m {'partition-id': 2, 'num-partitions': 3}
+[36m(ClientAppActor pid=9843)[0m {'num-server-rounds': 2, 'fraction-evaluate': 0.2, 'local-epochs': 1, 'learning-rate': 0.001, 'batch-size': 1, 'num-clients': 3, 'run-partitioner': 1}
+[36m(ClientAppActor pid=9843)[0m Configs:  {'lr': 0.001, 'local-epochs': 1, 'batch-size': 1, 'dataset-base': '/home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower', 'server-round': 2}
+[36m(ClientAppActor pid=9843)[0m Train YAML file for client node 2, file path /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_2.yaml
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 88% ━━━━━━━━━━╸─ 15/17 14.1it/s 1.6s<0.1s
+[36m(ClientAppActor pid=9843)[0m New https://pypi.org/project/ultralytics/8.3.235 available 😃 Update with 'pip install -U ultralytics'
+[36m(ClientAppActor pid=9843)[0m Ultralytics 8.3.228 🚀 Python-3.10.19 torch-2.1.0+cu118 CUDA:0 (NVIDIA GeForce GTX 1080, 8192MiB)
+[36m(ClientAppActor pid=9843)[0m [34m[1mengine/trainer: [0magnostic_nms=False, amp=True, augment=False, auto_augment=randaugment, batch=1, bgr=0.0, box=7.5, cache=False, cfg=None, classes=None, close_mosaic=10, cls=0.5, compile=False, conf=None, copy_paste=0.0, copy_paste_mode=flip, cos_lr=False, cutmix=0.0, data=/home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_2.yaml, degrees=0.0, deterministic=True, device=0, dfl=1.5, dnn=False, dropout=0.0, dynamic=False, embed=None, epochs=1, erasing=0.4, exist_ok=False, fliplr=0.5, flipud=0.0, format=torchscript, fraction=1.0, freeze=None, half=False, hsv_h=0.015, hsv_s=0.7, hsv_v=0.4, imgsz=640, int8=False, iou=0.7, keras=False, kobj=1.0, line_width=None, lr0=0.01, lrf=0.01, mask_ratio=4, max_det=300, mixup=0.0, mode=train, model=pretrained_models/pmmdc_300epochs/best.pt, momentum=0.937, mosaic=1.0, multi_scale=False, name=client_2, nbs=64, nms=False, opset=None, optimize=False, optimizer=auto, overlap_mask=True, patience=100, perspective=0.0, plots=True, pose=12.0, pretrained=True, profile=False, project=/home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_2, rect=False, resume=False, retina_masks=False, save=True, save_conf=False, save_crop=False, save_dir=/home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_2/client_2, save_frames=False, save_json=False, save_period=-1, save_txt=False, scale=0.5, seed=0, shear=0.0, show=False, show_boxes=True, show_conf=True, show_labels=True, simplify=True, single_cls=False, source=None, split=val, stream_buffer=False, task=detect, time=None, tracker=botsort.yaml, translate=0.1, val=True, verbose=False, vid_stride=1, visualize=False, warmup_bias_lr=0.1, warmup_epochs=3.0, warmup_momentum=0.8, weight_decay=0.0005, workers=8, workspace=None
+[36m(ClientAppActor pid=9843)[0m 
+[36m(ClientAppActor pid=9843)[0m                    from  n    params  module                                       arguments                     
+[36m(ClientAppActor pid=9843)[0m   0                  -1  1       464  ultralytics.nn.modules.conv.Conv             [3, 16, 3, 2]                 
+[36m(ClientAppActor pid=9843)[0m   1                  -1  1      4672  ultralytics.nn.modules.conv.Conv             [16, 32, 3, 2]                
+[36m(ClientAppActor pid=9843)[0m   2                  -1  1      7360  ultralytics.nn.modules.block.C2f             [32, 32, 1, True]             
+[36m(ClientAppActor pid=9843)[0m   3                  -1  1     18560  ultralytics.nn.modules.conv.Conv             [32, 64, 3, 2]                
+[36m(ClientAppActor pid=9843)[0m   4                  -1  2     49664  ultralytics.nn.modules.block.C2f             [64, 64, 2, True]             
+[36m(ClientAppActor pid=9843)[0m   5                  -1  1     73984  ultralytics.nn.modules.conv.Conv             [64, 128, 3, 2]               
+[36m(ClientAppActor pid=9843)[0m   6                  -1  2    197632  ultralytics.nn.modules.block.C2f             [128, 128, 2, True]           
+[36m(ClientAppActor pid=9843)[0m   7                  -1  1    295424  ultralytics.nn.modules.conv.Conv             [128, 256, 3, 2]              
+[36m(ClientAppActor pid=9843)[0m   8                  -1  1    460288  ultralytics.nn.modules.block.C2f             [256, 256, 1, True]           
+[36m(ClientAppActor pid=9843)[0m   9                  -1  1    164608  ultralytics.nn.modules.block.SPPF            [256, 256, 5]                 
+[36m(ClientAppActor pid=9843)[0m  10                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+[36m(ClientAppActor pid=9843)[0m  11             [-1, 6]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+[36m(ClientAppActor pid=9843)[0m  12                  -1  1    148224  ultralytics.nn.modules.block.C2f             [384, 128, 1]                 
+[36m(ClientAppActor pid=9843)[0m  13                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+[36m(ClientAppActor pid=9843)[0m  14             [-1, 4]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+[36m(ClientAppActor pid=9843)[0m  15                  -1  1     37248  ultralytics.nn.modules.block.C2f             [192, 64, 1]                  
+[36m(ClientAppActor pid=9843)[0m  16                  -1  1     36992  ultralytics.nn.modules.conv.Conv             [64, 64, 3, 2]                
+[36m(ClientAppActor pid=9843)[0m  17            [-1, 12]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+[36m(ClientAppActor pid=9843)[0m  18                  -1  1    123648  ultralytics.nn.modules.block.C2f             [192, 128, 1]                 
+[36m(ClientAppActor pid=9843)[0m  19                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]              
+[36m(ClientAppActor pid=9843)[0m  20             [-1, 9]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+[36m(ClientAppActor pid=9843)[0m  21                  -1  1    493056  ultralytics.nn.modules.block.C2f             [384, 256, 1]                 
+[36m(ClientAppActor pid=9843)[0m  22        [15, 18, 21]  1    751702  ultralytics.nn.modules.head.Detect           [2, [64, 128, 256]]           
+[36m(ClientAppActor pid=9843)[0m Model summary: 129 layers, 3,011,238 parameters, 3,011,222 gradients, 8.2 GFLOPs
+[36m(ClientAppActor pid=9843)[0m 
+[36m(ClientAppActor pid=9843)[0m Transferred 355/355 items from pretrained weights
+[36m(ClientAppActor pid=9843)[0m Freezing layer 'model.22.dfl.conv.weight'
+[36m(ClientAppActor pid=9843)[0m [34m[1mAMP: [0mrunning Automatic Mixed Precision (AMP) checks...
+[36m(ClientAppActor pid=9843)[0m [34m[1mAMP: [0mchecks passed ✅
+[36m(ClientAppActor pid=9843)[0m [34m[1mtrain: [0mFast image access ✅ (ping: 0.0±0.0 ms, read: 2607.3±1809.1 MB/s, size: 1487.5 KB)
+[36m(ClientAppActor pid=9843)[0m [K[34m[1mtrain: [0mScanning /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_2/train/labels.cache... 136 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 136/136 24.8Mit/s 0.0s[K[34m[1mtrain: [0mScanning /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_2/train/labels.cache... 136 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 136/136 1.8Mit/s 0.0s
+[36m(ClientAppActor pid=9843)[0m [34m[1mval: [0mFast image access ✅ (ping: 0.1±0.2 ms, read: 1425.7±1991.2 MB/s, size: 1803.8 KB)
+[36m(ClientAppActor pid=9843)[0m [K[34m[1mval: [0mScanning /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_2/val/labels.cache... 34 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 34/34 1.2Mit/s 0.0s[K[34m[1mval: [0mScanning /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_2/val/labels.cache... 34 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 34/34 192.7Kit/s 0.0s
+[36m(ClientAppActor pid=9843)[0m Plotting labels to /home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_2/client_2/labels.jpg... 
+[36m(ClientAppActor pid=9843)[0m [34m[1moptimizer:[0m 'optimizer=auto' found, ignoring 'lr0=0.01' and 'momentum=0.937' and determining best 'optimizer', 'lr0' and 'momentum' automatically... 
+[36m(ClientAppActor pid=9843)[0m [34m[1moptimizer:[0m AdamW(lr=0.001667, momentum=0.9) with parameter groups 57 weight(decay=0.0), 64 weight(decay=0.0005), 63 bias(decay=0.0)
+[36m(ClientAppActor pid=9843)[0m Image sizes 640 train, 640 val
+[36m(ClientAppActor pid=9843)[0m Using 4 dataloader workers
+[36m(ClientAppActor pid=9843)[0m Logging results to [1m/home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_2/client_2[0m
+[36m(ClientAppActor pid=9843)[0m Starting training for 1 epochs...
+[36m(ClientAppActor pid=9843)[0m 
+[36m(ClientAppActor pid=9843)[0m       Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+[36m(ClientAppActor pid=9844)[0m Speed: 1.4ms preprocess, 25.3ms inference, 0.0ms loss, 5.3ms postprocess per image
+[36m(ClientAppActor pid=9844)[0m Results saved to [1m/home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_2/client_0[0m
+[36m(ClientAppActor pid=9844)[0m                    all         34        296      0.932      0.929      0.969      0.844
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.293G     0.3241     0.2691     0.7568          8        640: 0% ──────────── 0/136  0.2s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.293G     0.5493     0.5591      0.657          3        640: 1% ──────────── 1/136 1.3it/s 0.4s<1:40
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.293G     0.4899     0.4724     0.7211          2        640: 1% ──────────── 2/136 2.4it/s 0.6s<56.0s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.303G      0.483     0.4553     0.7451          5        640: 2% ──────────── 3/136 3.1it/s 0.8s<42.6s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.303G     0.4516     0.4167     0.7733          3        640: 3% ──────────── 4/136 4.3it/s 1.0s<30.5s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.312G     0.4232      0.402     0.7835          2        640: 4% ──────────── 5/136 4.5it/s 1.2s<29.2s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.312G     0.5142     0.5712     0.8558          1        640: 4% ╸─────────── 6/136 5.1it/s 1.3s<25.5s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.312G     0.5612     0.5583     0.8604          2        640: 5% ╸─────────── 7/136 5.1it/s 1.5s<25.4s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.312G      0.532     0.5217     0.8536          3        640: 6% ╸─────────── 8/136 5.7it/s 1.7s<22.3s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.314G     0.5426     0.5334     0.8772          7        640: 7% ╸─────────── 9/136 5.8it/s 1.8s<22.0s
+[36m(ClientAppActor pid=9844)[0m num samples in client train:  136
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.314G     0.5593     0.5343     0.8821         14        640: 7% ╸─────────── 10/136 6.1it/s 2.0s<20.8s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.314G     0.5587       0.52     0.8776          7        640: 8% ╸─────────── 11/136 5.5it/s 2.2s<22.9s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.314G     0.5444     0.5096     0.8752          7        640: 9% ━─────────── 12/136 5.4it/s 2.4s<22.9s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.314G      0.545     0.4992     0.8716          7        640: 10% ━─────────── 13/136 6.0it/s 2.6s<20.7s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.314G     0.5489     0.4907      0.874          2        640: 10% ━─────────── 14/136 6.7it/s 2.7s<18.3s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5429     0.4805     0.8684         21        640: 11% ━─────────── 15/136 6.2it/s 2.9s<19.4s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5326     0.4701     0.8608          2        640: 12% ━─────────── 16/136 6.3it/s 3.0s<18.9s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5277     0.4688     0.8579         16        640: 12% ━─────────── 17/136 6.5it/s 3.2s<18.3s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5203     0.4568     0.8552          2        640: 13% ━╸────────── 18/136 6.3it/s 3.3s<18.6s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5099     0.4446     0.8499          2        640: 14% ━╸────────── 19/136 5.8it/s 3.5s<20.1s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5041      0.441     0.8502         11        640: 15% ━╸────────── 20/136 6.0it/s 3.7s<19.4s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5107     0.4485     0.8527         13        640: 15% ━╸────────── 21/136 6.3it/s 3.8s<18.3s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5147     0.4659     0.8541         18        640: 16% ━╸────────── 22/136 6.9it/s 4.0s<16.5s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5057     0.4575     0.8538          1        640: 17% ━━────────── 23/136 7.0it/s 4.1s<16.2s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.4971     0.4483     0.8495          5        640: 18% ━━────────── 24/136 6.1it/s 4.3s<18.3s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.4942     0.4432     0.8483          7        640: 18% ━━────────── 25/136 6.6it/s 4.5s<16.7s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.4954     0.4468     0.8487          6        640: 19% ━━────────── 26/136 6.9it/s 4.6s<15.8s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.4923      0.443     0.8487          1        640: 20% ━━────────── 27/136 7.0it/s 4.7s<15.6s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5145     0.4564     0.8477         15        640: 21% ━━────────── 28/136 7.3it/s 4.9s<14.8s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5142     0.4548     0.8493          9        640: 21% ━━╸───────── 29/136 6.5it/s 5.1s<16.3s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5199     0.4587     0.8474          3        640: 22% ━━╸───────── 30/136 6.6it/s 5.2s<16.1s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5145      0.454     0.8442         14        640: 23% ━━╸───────── 31/136 7.0it/s 5.4s<15.0s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5188     0.4583     0.8421         14        640: 24% ━━╸───────── 32/136 7.2it/s 5.5s<14.4s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5271     0.4582     0.8425          3        640: 24% ━━╸───────── 33/136 7.0it/s 5.6s<14.7s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5262     0.4522     0.8456          1        640: 25% ━━━───────── 34/136 6.7it/s 5.8s<15.3s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5263     0.4498      0.847          1        640: 26% ━━━───────── 35/136 5.9it/s 6.1s<17.1s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5407     0.4771     0.8547          3        640: 26% ━━━───────── 36/136 6.3it/s 6.2s<15.8s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5264      1.158     0.8322          0        640: 27% ━━━───────── 37/136 7.2it/s 6.3s<13.8s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G      0.545      1.152     0.8363          1        640: 28% ━━━───────── 38/136 7.1it/s 6.4s<13.8s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5484       1.13       0.84          1        640: 29% ━━━───────── 39/136 7.1it/s 6.6s<13.7s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5432      1.115     0.8384          6        640: 29% ━━━╸──────── 40/136 7.0it/s 6.7s<13.8s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G      0.561      1.109     0.8511          3        640: 30% ━━━╸──────── 41/136 6.7it/s 6.9s<14.2s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5608      1.105      0.849         33        640: 31% ━━━╸──────── 42/136 6.0it/s 7.1s<15.6s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5589      1.086     0.8437          3        640: 32% ━━━╸──────── 43/136 6.5it/s 7.3s<14.4s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5435      1.086     0.8253          4        640: 33% ━━━╸──────── 45/136 7.0it/s 7.5s<13.0s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5792      1.189     0.8387          2        640: 34% ━━━━──────── 46/136 7.2it/s 7.6s<12.5s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5792      1.173     0.8396         13        640: 35% ━━━━──────── 47/136 6.9it/s 7.8s<12.8s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5772      1.161     0.8364          4        640: 35% ━━━━──────── 48/136 6.5it/s 8.0s<13.5s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5802       1.15     0.8369         11        640: 36% ━━━━──────── 49/136 6.5it/s 8.1s<13.4s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5824      1.136      0.839          5        640: 37% ━━━━──────── 50/136 6.7it/s 8.3s<12.8s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5813      1.123     0.8377         20        640: 38% ━━━━──────── 51/136 6.5it/s 8.4s<13.0s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5824      1.125     0.8364         17        640: 38% ━━━━╸─────── 52/136 6.6it/s 8.6s<12.8s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5818      1.114     0.8362         11        640: 39% ━━━━╸─────── 53/136 6.6it/s 8.7s<12.5s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5757        1.1     0.8376          1        640: 40% ━━━━╸─────── 54/136 6.4it/s 8.9s<12.9s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5699      1.084     0.8345          3        640: 40% ━━━━╸─────── 55/136 6.6it/s 9.0s<12.2s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5729      1.074     0.8339         17        640: 41% ━━━━╸─────── 56/136 7.0it/s 9.2s<11.4s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5728      1.063     0.8341         19        640: 42% ━━━━━─────── 57/136 7.0it/s 9.3s<11.3s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5733      1.054     0.8328          8        640: 43% ━━━━━─────── 58/136 6.8it/s 9.5s<11.5s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G      0.575      1.048     0.8323         39        640: 43% ━━━━━─────── 59/136 7.2it/s 9.6s<10.6s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5817      1.047     0.8387          8        640: 44% ━━━━━─────── 60/136 7.6it/s 9.7s<10.1s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5879      1.045     0.8378         29        640: 45% ━━━━━─────── 61/136 7.0it/s 9.9s<10.7s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5935      1.038     0.8383          7        640: 46% ━━━━━─────── 62/136 7.0it/s 10.0s<10.6s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5923       1.03     0.8383         14        640: 46% ━━━━━╸────── 63/136 7.2it/s 10.2s<10.2s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5927      1.021     0.8394          2        640: 47% ━━━━━╸────── 64/136 7.3it/s 10.3s<9.8s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5911      1.011     0.8403          5        640: 48% ━━━━━╸────── 65/136 7.5it/s 10.4s<9.5s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5931      1.009     0.8402         43        640: 49% ━━━━━╸────── 66/136 7.5it/s 10.5s<9.3s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5938      1.008     0.8399         39        640: 49% ━━━━━╸────── 67/136 6.8it/s 10.7s<10.2s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5933      1.001     0.8399          9        640: 50% ━━━━━━────── 68/136 6.8it/s 10.9s<10.1s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5966     0.9948     0.8399          5        640: 51% ━━━━━━────── 69/136 6.4it/s 11.1s<10.5s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G      0.594      0.988     0.8399         14        640: 51% ━━━━━━────── 70/136 6.7it/s 11.2s<9.9s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5929     0.9788     0.8399          7        640: 52% ━━━━━━────── 71/136 6.6it/s 11.4s<9.8s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5919     0.9704     0.8391          5        640: 53% ━━━━━━────── 72/136 6.9it/s 11.5s<9.3s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G      0.589     0.9608     0.8356          1        640: 54% ━━━━━━────── 73/136 6.3it/s 11.7s<10.0s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5896      0.953     0.8337          5        640: 54% ━━━━━━╸───── 74/136 6.0it/s 11.9s<10.3s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5904     0.9493     0.8331         24        640: 55% ━━━━━━╸───── 75/136 5.9it/s 12.1s<10.4s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G       0.59     0.9446     0.8331         12        640: 56% ━━━━━━╸───── 76/136 6.0it/s 12.2s<9.9s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5892     0.9363     0.8335          1        640: 57% ━━━━━━╸───── 77/136 6.2it/s 12.4s<9.5s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5925     0.9325     0.8333         26        640: 57% ━━━━━━╸───── 78/136 6.8it/s 12.5s<8.5s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G      0.593     0.9281     0.8331         33        640: 58% ━━━━━━╸───── 79/136 6.3it/s 12.7s<9.1s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5957     0.9248     0.8334         13        640: 59% ━━━━━━━───── 80/136 6.5it/s 12.8s<8.6s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5934     0.9175     0.8342          2        640: 60% ━━━━━━━───── 81/136 6.5it/s 13.0s<8.4s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5977     0.9115      0.837          3        640: 60% ━━━━━━━───── 82/136 6.9it/s 13.1s<7.9s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5992     0.9082     0.8383         17        640: 61% ━━━━━━━───── 83/136 6.7it/s 13.3s<7.9s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6007     0.9043       0.84          9        640: 62% ━━━━━━━───── 84/136 6.7it/s 13.4s<7.8s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5989     0.8975     0.8395          4        640: 62% ━━━━━━━───── 85/136 6.8it/s 13.6s<7.5s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5987     0.8927     0.8394          1        640: 63% ━━━━━━━╸──── 86/136 7.0it/s 13.7s<7.2s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.5997     0.8885     0.8398         29        640: 64% ━━━━━━━╸──── 87/136 6.3it/s 13.9s<7.8s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6039      0.888     0.8394          8        640: 65% ━━━━━━━╸──── 88/136 6.8it/s 14.0s<7.0s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6028     0.8836     0.8385         12        640: 65% ━━━━━━━╸──── 89/136 6.6it/s 14.2s<7.1s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6031     0.8803      0.838         14        640: 66% ━━━━━━━╸──── 90/136 6.5it/s 14.4s<7.1s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G      0.599     0.8731     0.8375          1        640: 67% ━━━━━━━━──── 91/136 6.8it/s 14.5s<6.6s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6103     0.8733     0.8417          1        640: 68% ━━━━━━━━──── 92/136 7.0it/s 14.6s<6.3s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6092     0.8677     0.8415          2        640: 68% ━━━━━━━━──── 93/136 7.3it/s 14.8s<5.9s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6088     0.8625     0.8406          7        640: 69% ━━━━━━━━──── 94/136 7.5it/s 14.9s<5.6s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6101     0.8595     0.8415         13        640: 70% ━━━━━━━━──── 95/136 7.1it/s 15.0s<5.8s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6113     0.8584     0.8407         13        640: 71% ━━━━━━━━──── 96/136 7.1it/s 15.2s<5.6s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6147     0.8604     0.8406         18        640: 71% ━━━━━━━━╸─── 97/136 6.8it/s 15.3s<5.7s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6173     0.8591     0.8404         28        640: 72% ━━━━━━━━╸─── 98/136 6.8it/s 15.5s<5.6s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6169     0.8546     0.8411         10        640: 73% ━━━━━━━━╸─── 99/136 7.1it/s 15.6s<5.2s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6146     0.8483     0.8408          2        640: 74% ━━━━━━━━╸─── 100/136 7.5it/s 15.7s<4.8s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6105     0.8382     0.8341          1        640: 75% ━━━━━━━━━─── 102/136 7.7it/s 16.0s<4.4s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6137     0.8381      0.834         24        640: 76% ━━━━━━━━━─── 103/136 7.5it/s 16.1s<4.4s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G      0.615     0.8336     0.8338          5        640: 76% ━━━━━━━━━─── 104/136 6.7it/s 16.3s<4.8s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6139     0.8301     0.8319          2        640: 77% ━━━━━━━━━─── 105/136 6.9it/s 16.5s<4.5s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6131     0.8254     0.8315         14        640: 78% ━━━━━━━━━─── 106/136 6.8it/s 16.6s<4.4s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6123     0.8223     0.8315         13        640: 79% ━━━━━━━━━─── 107/136 6.6it/s 16.8s<4.4s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6122     0.8184     0.8309         16        640: 79% ━━━━━━━━━╸── 108/136 6.9it/s 16.9s<4.1s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6106      0.815     0.8309         15        640: 80% ━━━━━━━━━╸── 109/136 6.8it/s 17.1s<4.0s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6097     0.8109     0.8302          3        640: 81% ━━━━━━━━━╸── 110/136 6.7it/s 17.2s<3.9s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6088     0.8068     0.8316          2        640: 82% ━━━━━━━━━╸── 111/136 6.9it/s 17.4s<3.6s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6107     0.8041     0.8315          8        640: 82% ━━━━━━━━━╸── 112/136 7.1it/s 17.5s<3.4s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6101     0.8053     0.8319         34        640: 83% ━━━━━━━━━╸── 113/136 7.4it/s 17.6s<3.1s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6129     0.8052      0.832         20        640: 84% ━━━━━━━━━━── 114/136 7.0it/s 17.8s<3.1s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6126     0.8112     0.8316          1        640: 85% ━━━━━━━━━━── 115/136 7.0it/s 17.9s<3.0s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G      0.612     0.8077     0.8313          5        640: 85% ━━━━━━━━━━── 116/136 7.0it/s 18.1s<2.9s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G      0.613     0.8058     0.8309         16        640: 86% ━━━━━━━━━━── 117/136 7.1it/s 18.2s<2.7s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6119     0.8027     0.8301          2        640: 87% ━━━━━━━━━━── 118/136 7.5it/s 18.3s<2.4s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6123     0.8021     0.8297          6        640: 88% ━━━━━━━━━━── 119/136 7.2it/s 18.5s<2.4s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6192     0.8127     0.8305        140        640: 88% ━━━━━━━━━━╸─ 120/136 7.1it/s 18.6s<2.3s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6175     0.8079     0.8301          3        640: 89% ━━━━━━━━━━╸─ 121/136 7.2it/s 18.8s<2.1s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6156     0.8054     0.8308          2        640: 90% ━━━━━━━━━━╸─ 122/136 7.2it/s 18.9s<2.0s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6143     0.8038     0.8307         15        640: 90% ━━━━━━━━━━╸─ 123/136 6.7it/s 19.1s<1.9s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6117     0.8026     0.8311          3        640: 91% ━━━━━━━━━━╸─ 124/136 6.3it/s 19.3s<1.9s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6126     0.8005     0.8306          6        640: 92% ━━━━━━━━━━━─ 125/136 6.7it/s 19.4s<1.6s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6136        0.8     0.8317          1        640: 93% ━━━━━━━━━━━─ 126/136 6.4it/s 19.6s<1.6s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6143     0.7984      0.833          6        640: 93% ━━━━━━━━━━━─ 127/136 6.8it/s 19.7s<1.3s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6159     0.7955     0.8328         12        640: 94% ━━━━━━━━━━━─ 128/136 7.1it/s 19.8s<1.1s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6167     0.7938     0.8328         28        640: 95% ━━━━━━━━━━━─ 129/136 7.3it/s 20.0s<1.0s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6168     0.7917     0.8332          6        640: 96% ━━━━━━━━━━━─ 130/136 7.3it/s 20.1s<0.8s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6136     0.7873     0.8323          1        640: 96% ━━━━━━━━━━━╸ 131/136 7.1it/s 20.3s<0.7s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6141     0.7909     0.8322         57        640: 97% ━━━━━━━━━━━╸ 132/136 6.4it/s 20.5s<0.6s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6133     0.7887     0.8329         11        640: 98% ━━━━━━━━━━━╸ 133/136 7.0it/s 20.6s<0.4s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6109     0.7853     0.8331          3        640: 99% ━━━━━━━━━━━╸ 134/136 7.1it/s 20.7s<0.3s
+[36m(ClientAppActor pid=9843)[0m [K        1/1     0.318G     0.6122     0.7851     0.8344         13        640: 99% ━━━━━━━━━━━╸ 135/136 7.3it/s 20.8s<0.1s[K        1/1     0.318G     0.6122     0.7851     0.8344         13        640: 100% ━━━━━━━━━━━━ 136/136 6.5it/s 20.8s[K        1/1     0.318G     0.6122     0.7851     0.8344         13        640: 100% ━━━━━━━━━━━━ 136/136 6.5it/s 20.8s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 12% ━─────────── 2/17 2.7it/s 0.2s<5.5s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 18% ━━────────── 3/17 3.5it/s 0.4s<4.1s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 24% ━━╸───────── 4/17 4.0it/s 0.6s<3.3s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 35% ━━━━──────── 6/17 7.5it/s 0.7s<1.5s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 47% ━━━━━╸────── 8/17 9.6it/s 0.9s<0.9s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 59% ━━━━━━━───── 10/17 10.0it/s 1.1s<0.7s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 71% ━━━━━━━━──── 12/17 10.1it/s 1.2s<0.5s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 82% ━━━━━━━━━╸── 14/17 10.7it/s 1.4s<0.3s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 94% ━━━━━━━━━━━─ 16/17 10.8it/s 1.6s<0.1s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 17/17 10.2it/s 1.7s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 17/17 10.2it/s 1.7s
+[36m(ClientAppActor pid=9843)[0m                    all         34        279      0.997      0.967      0.993      0.896
+[36m(ClientAppActor pid=9843)[0m 
+[36m(ClientAppActor pid=9843)[0m 1 epochs completed in 0.007 hours.
+[36m(ClientAppActor pid=9843)[0m Optimizer stripped from /home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_2/client_2/weights/last.pt, 6.2MB
+[36m(ClientAppActor pid=9843)[0m Optimizer stripped from /home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_2/client_2/weights/best.pt, 6.2MB
+[36m(ClientAppActor pid=9843)[0m 
+[36m(ClientAppActor pid=9843)[0m Validating /home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_2/client_2/weights/best.pt...
+[36m(ClientAppActor pid=9843)[0m Ultralytics 8.3.228 🚀 Python-3.10.19 torch-2.1.0+cu118 CUDA:0 (NVIDIA GeForce GTX 1080, 8192MiB)
+[36m(ClientAppActor pid=9843)[0m Model summary (fused): 72 layers, 3,006,038 parameters, 0 gradients, 8.1 GFLOPs
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 12% ━─────────── 2/17 3.3it/s 0.2s<4.6s
+[92mINFO [0m:      aggregate_train: Received 3 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'metrics/precision(B)': 0.9588545008229399, 'metrics/recall(B)': 0.9603785435404815, 'metrics/mAP50(B)': 0.9850679892657606, 'metrics/mAP50-95(B)': 0.8799131373879039, 'fitness': 0.8799131373879039}
+[92mINFO [0m:      configure_evaluate: Sampled 2 nodes (out of 3)
+[92mINFO [0m:      aggregate_evaluate: Received 2 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'metrics/precision(B)': 0.9606460299631647, 'metrics/recall(B)': 0.9601453482432701, 'metrics/mAP50(B)': 0.9836932071113855, 'metrics/mAP50-95(B)': 0.894095948781858, 'fitness': 0.894095948781858}
+[92mINFO [0m:      Global evaluation
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 18% ━━────────── 3/17 5.0it/s 0.3s<2.8s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 24% ━━╸───────── 4/17 6.1it/s 0.4s<2.1s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 41% ━━━━╸─────── 7/17 9.7it/s 0.6s<1.0s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 59% ━━━━━━━───── 10/17 15.4it/s 0.7s<0.5s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 76% ━━━━━━━━━─── 13/17 14.4it/s 0.9s<0.3s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 82% ━━━━━━━━━╸── 14/17 12.7it/s 1.0s<0.2s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 94% ━━━━━━━━━━━─ 16/17 14.0it/s 1.2s<0.1s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 17/17 14.2it/s 1.2s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 17/17 14.2it/s 1.2s
+[36m(ClientAppActor pid=9843)[0m                    all         34        279      0.996      0.965      0.993      0.895
+[36m(ClientAppActor pid=9843)[0m Speed: 0.7ms preprocess, 18.9ms inference, 0.0ms loss, 3.5ms postprocess per image
+[36m(ClientAppActor pid=9843)[0m Results saved to [1m/home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/train/round_2/client_2[0m
+[36m(ClientAppActor pid=9843)[0m num samples in client train:  136
+[36m(ClientAppActor pid=9843)[0m Eval YAML file for client node 0, file path /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_0.yaml
+[36m(ClientAppActor pid=9843)[0m Ultralytics 8.3.228 🚀 Python-3.10.19 torch-2.1.0+cu118 CUDA:0 (NVIDIA GeForce GTX 1080, 8192MiB)
+[36m(ClientAppActor pid=9843)[0m Model summary (fused): 72 layers, 3,006,038 parameters, 0 gradients, 8.1 GFLOPs
+[36m(ClientAppActor pid=9843)[0m [34m[1mval: [0mFast image access ✅ (ping: 0.0±0.0 ms, read: 4423.5±298.7 MB/s, size: 1670.1 KB)
+[36m(ClientAppActor pid=9843)[0m [K[34m[1mval: [0mScanning /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_0/val/labels.cache... 34 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 34/34 5.5Mit/s 0.0s[K[34m[1mval: [0mScanning /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_0/val/labels.cache... 34 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 34/34 507.5Kit/s 0.0s
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 29.9s/it 9.0s<59.9s
+[36m(ClientAppActor pid=9844)[0m Eval YAML file for client node 1, file path /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_1.yaml
+[36m(ClientAppActor pid=9844)[0m Ultralytics 8.3.228 🚀 Python-3.10.19 torch-2.1.0+cu118 CUDA:0 (NVIDIA GeForce GTX 1080, 8192MiB)
+[36m(ClientAppActor pid=9844)[0m Model summary (fused): 72 layers, 3,006,038 parameters, 0 gradients, 8.1 GFLOPs
+[36m(ClientAppActor pid=9844)[0m [34m[1mval: [0mFast image access ✅ (ping: 0.0±0.0 ms, read: 3494.8±2296.2 MB/s, size: 1540.4 KB)
+[36m(ClientAppActor pid=9844)[0m [K[34m[1mval: [0mScanning /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_1/val/labels.cache... 34 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 34/34 6.2Mit/s 0.0s[K[34m[1mval: [0mScanning /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/flower/client_1/val/labels.cache... 34 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 34/34 540.2Kit/s 0.0s
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 67% ━━━━━━━━──── 2/3 4.9s/it 10.6s<4.9s
+[36m(ClientAppActor pid=9844)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 3.7s/it 11.1s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 3.7s/it 11.1s
+[36m(ClientAppActor pid=9844)[0m                    all         34        207      0.988       0.99      0.994      0.928
+[36m(ClientAppActor pid=9844)[0m                 plasma         34        105      0.986       0.99      0.995       0.94
+[36m(ClientAppActor pid=9844)[0m             non_plasma         25        102       0.99       0.99      0.994      0.917
+[36m(ClientAppActor pid=9844)[0m Speed: 16.5ms preprocess, 14.2ms inference, 0.0ms loss, 9.4ms postprocess per image
+[36m(ClientAppActor pid=9844)[0m Results saved to [1m/home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/val/round_2/client_1[0m
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 34.1s/it 10.2s<1:08
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 67% ━━━━━━━━──── 2/3 4.6s/it 11.7s<4.6s
+[36m(ClientAppActor pid=9843)[0m [K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 4.3s/it 12.9s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 4.3s/it 12.9s
+[36m(ClientAppActor pid=9844)[0m num samples in client validation:  34
+Model summary (fused): 72 layers, 3,006,038 parameters, 0 gradients, 8.1 GFLOPs
+[34m[1mval: [0mFast image access ✅ (ping: 0.0±0.0 ms, read: 834.3±158.0 MB/s, size: 2364.3 KB)
+[K[34m[1mval: [0mScanning /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/patients/patient 01/labels.cache... 34 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 34/34 5.3Mit/s 0.0s[K[34m[1mval: [0mScanning /home/anas/python_venvs/scripts/flower_simulation/myelocare/datasets/MMDB/data/detection/patients/patient 01/labels.cache... 34 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 34/34 190.7Kit/s 0.0s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 9.2s/it 2.8s<18.4s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 67% ━━━━━━━━──── 2/3 2.1s/it 3.5s<2.1s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 1.3s/it 3.8s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 1.3s/it 3.8s
+                   all         34        202      0.759      0.861       0.87      0.735
+                plasma         30         82      0.747      0.898       0.86      0.743
+            non_plasma         32        120      0.771      0.825       0.88      0.728
+Speed: 11.6ms preprocess, 10.5ms inference, 0.0ms loss, 4.0ms postprocess per image
+Results saved to [1m/home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/val/round_2/server[0m
+[92mINFO [0m:      	└──> MetricRecord: {'metrics/precision(B)': 0.7587659540716938, 'metrics/recall(B)': 0.8614466442937497, 'metrics/mAP50(B)': 0.8701867882407706, 'metrics/mAP50-95(B)': 0.7354432994907942, 'fitness': 0.7354432994907942, 'num-examples': 34}
+[92mINFO [0m:      
+[92mINFO [0m:      Strategy execution finished in 221.69s
+[92mINFO [0m:      
+[92mINFO [0m:      Final results:
+[92mINFO [0m:      
+[92mINFO [0m:      	Global Arrays:
+[92mINFO [0m:      		ArrayRecord (11.570 MB)
+[92mINFO [0m:      	
+[92mINFO [0m:      	Aggregated ClientApp-side Train Metrics:
+[92mINFO [0m:      	{ 1: { 'fitness': '8.7287e-01',
+[92mINFO [0m:      	       'metrics/mAP50(B)': '9.7636e-01',
+[92mINFO [0m:      	       'metrics/mAP50-95(B)': '8.7287e-01',
+[92mINFO [0m:      	       'metrics/precision(B)': '9.3313e-01',
+[92mINFO [0m:      	       'metrics/recall(B)': '9.6021e-01'},
+[92mINFO [0m:      	  2: { 'fitness': '8.7991e-01',
+[92mINFO [0m:      	       'metrics/mAP50(B)': '9.8507e-01',
+[92mINFO [0m:      	       'metrics/mAP50-95(B)': '8.7991e-01',
+[92mINFO [0m:      	       'metrics/precision(B)': '9.5885e-01',
+[92mINFO [0m:      	       'metrics/recall(B)': '9.6038e-01'}}
+[92mINFO [0m:      	
+[92mINFO [0m:      	Aggregated ClientApp-side Evaluate Metrics:
+[92mINFO [0m:      	{ 1: { 'fitness': '8.7695e-01',
+[92mINFO [0m:      	       'metrics/mAP50(B)': '9.7929e-01',
+[92mINFO [0m:      	       'metrics/mAP50-95(B)': '8.7695e-01',
+[92mINFO [0m:      	       'metrics/precision(B)': '9.3601e-01',
+[92mINFO [0m:      	       'metrics/recall(B)': '9.5478e-01'},
+[92mINFO [0m:      	  2: { 'fitness': '8.9410e-01',
+[92mINFO [0m:      	       'metrics/mAP50(B)': '9.8369e-01',
+[92mINFO [0m:      	       'metrics/mAP50-95(B)': '8.9410e-01',
+[92mINFO [0m:      	       'metrics/precision(B)': '9.6065e-01',
+[92mINFO [0m:      	       'metrics/recall(B)': '9.6015e-01'}}
+[92mINFO [0m:      	
+[92mINFO [0m:      	ServerApp-side Evaluate Metrics:
+[92mINFO [0m:      	{ 0: { 'fitness': '7.6964e-01',
+[92mINFO [0m:      	       'metrics/mAP50(B)': '8.8887e-01',
+[92mINFO [0m:      	       'metrics/mAP50-95(B)': '7.6964e-01',
+[92mINFO [0m:      	       'metrics/precision(B)': '8.0298e-01',
+[92mINFO [0m:      	       'metrics/recall(B)': '8.3963e-01',
+[92mINFO [0m:      	       'num-examples': '34'},
+[92mINFO [0m:      	  1: { 'fitness': '7.4232e-01',
+[92mINFO [0m:      	       'metrics/mAP50(B)': '8.6089e-01',
+[92mINFO [0m:      	       'metrics/mAP50-95(B)': '7.4232e-01',
+[92mINFO [0m:      	       'metrics/precision(B)': '7.6353e-01',
+[92mINFO [0m:      	       'metrics/recall(B)': '8.5711e-01',
+[92mINFO [0m:      	       'num-examples': '34'},
+[92mINFO [0m:      	  2: { 'fitness': '7.3544e-01',
+[92mINFO [0m:      	       'metrics/mAP50(B)': '8.7019e-01',
+[92mINFO [0m:      	       'metrics/mAP50-95(B)': '7.3544e-01',
+[92mINFO [0m:      	       'metrics/precision(B)': '7.5877e-01',
+[92mINFO [0m:      	       'metrics/recall(B)': '8.6145e-01',
+[92mINFO [0m:      	       'num-examples': '34'}}
+[92mINFO [0m:      
+num samples in client validation:  34
+[36m(ClientAppActor pid=9843)[0m                    all         34        296      0.933       0.93      0.973       0.86
+[36m(ClientAppActor pid=9843)[0m                 plasma         34         99       0.98      0.992      0.995      0.949
+[36m(ClientAppActor pid=9843)[0m             non_plasma         25        197      0.887      0.868      0.951      0.771
+[36m(ClientAppActor pid=9843)[0m Speed: 33.2ms preprocess, 18.2ms inference, 0.0ms loss, 8.1ms postprocess per image
+[36m(ClientAppActor pid=9843)[0m Results saved to [1m/home/anas/python_venvs/scripts/flower_simulation/myelocare/runs/20251208/run001/val/round_2/client_0[0m
+[36m(ClientAppActor pid=9843)[0m num samples in client validation:  34

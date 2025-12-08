@@ -26,8 +26,9 @@ def train(msg: Message, context: Context):
 
     # Training config
     node_partition_id = context.node_config.get("partition-id", -1)
-    local_epochs = msg.content["config"]["localepochs"]
+    local_epochs = msg.content["config"]["local-epochs"]
     lr = msg.content["config"]["lr"]
+    batch_size = msg.content["config"]["batch-size"]
     dataset_base = msg.content["config"]["dataset-base"]
     
     round_id = -1
@@ -44,7 +45,7 @@ def train(msg: Message, context: Context):
     print(f"Train YAML file for client node {node_partition_id}, file path {yaml_path}")
 
     # Local training
-    metrics = train_fn(model,project=project, name=name, epochs=local_epochs, lr=lr, data_path=yaml_path)
+    metrics = train_fn(model,project=project, name=name, epochs=local_epochs, lr=lr, batch_size=batch_size,data_path=yaml_path)
     # Return updated weights and metrics
     model_record = ArrayRecord(model.model.state_dict())
     metric_record = MetricRecord(metrics)

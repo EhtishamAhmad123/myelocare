@@ -21,7 +21,7 @@ def get_model():
     return model
 
 
-def train(model, data_path, project = "runs", name = "train", lr=0.01, epochs=LOCAL_EPOCHS):
+def train(model, data_path, project = "runs", name = "train", lr=0.01, epochs=LOCAL_EPOCHS, batch_size=BATCH_SIZE):
     """
     Train YOLOv8 model and return (metrics_dict, num_samples)
     """
@@ -45,7 +45,7 @@ def train(model, data_path, project = "runs", name = "train", lr=0.01, epochs=LO
         epochs=epochs,
         device=DEVICE,
         imgsz=640,
-        batch=BATCH_SIZE,
+        batch=batch_size,
         plots=True,
         project=project,
         name=name,
@@ -54,6 +54,7 @@ def train(model, data_path, project = "runs", name = "train", lr=0.01, epochs=LO
 
     metrics = results.results_dict
     metrics["num-examples"] = num_samples
+    print("num samples in client train: ", num_samples)
     return metrics
 
 
@@ -86,6 +87,7 @@ def test(model,data_path, project = "runs", name = "train", device=DEVICE):
         num_samples = 1
 
     metrics["num-examples"] = num_samples
+    print("num samples in client validation: ", num_samples)
     return metrics
 
 

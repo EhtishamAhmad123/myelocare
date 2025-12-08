@@ -7,8 +7,7 @@ from yolosimulation.config import *
 
 
  
-def create_partitions(dataset_dir, output_dir, no_of_clients, class_names, ratios):
-    val_ratio = 0.2
+def create_partitions(dataset_dir, output_dir, no_of_clients, class_names, ratios, val_ratio=0.2):
 
     if len(ratios) != no_of_clients:
         raise ValueError(f"Ratios must match number of clients ({no_of_clients})")

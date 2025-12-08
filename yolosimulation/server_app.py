@@ -7,12 +7,7 @@ from yolosimulation.task import get_model, test, create_run_dir, make_project_na
 from yolosimulation.data_partition import create_partitions
 from yolosimulation.config import *
 
-
-
 app = ServerApp()
-
-
-
 
 def gen_run_dir():
     import os
@@ -57,10 +52,13 @@ def main(grid: Grid, context: Context) -> None:
     fraction_evaluate = context.run_config.get("fraction-evaluate", 0.5)
     num_rounds = context.run_config.get("num-server-rounds", 1)
     lr = context.run_config.get("learning-rate", 0.001)
+    run_partitioner = context.run_config.get("run-partitioner", RUN_PARTITIONER)
+    local_epochs = context.run_config.get("local-epochs", LOCAL_EPOCHS)
+    batch_size = context.run_config.get("batch-size", BATCH_SIZE)
+    num_clients = context.run_config.get("num-clients", NUM_CLIENTS)
 
-
-    if(RUN_PARTITIONER):
-        create_partitions(MAIN_DATASET_PATH, DATASET_PATH,NUM_CLIENTS, CLASSES, [ 1/NUM_CLIENTS for i in range(0, NUM_CLIENTS) ])
+    if(run_partitioner):
+        create_partitions(MAIN_DATASET_PATH, DATASET_PATH,NUM_CLIENTS, CLASSES, [ 1/num_clients for i in range(0, num_clients) ], val_ratio=fraction_evaluate)
 
     # Load initial YOLOv8 model
     global_model = get_model()
@@ -80,7 +78,8 @@ def main(grid: Grid, context: Context) -> None:
         initial_arrays=arrays,
         train_config=ConfigRecord({
             "lr": lr,
-            "localepochs": LOCAL_EPOCHS,
+            "local-epochs": local_epochs,
+            "batch-size": batch_size,
             "dataset-base": DATASET_PATH
         }),
         num_rounds=num_rounds,
