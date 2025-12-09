@@ -18,7 +18,7 @@ CLASSES = ["plasma", "non_plasma"]
 LOCAL_EPOCHS = 1  # default local epochs for federated round
 
 # ===== MODEL =====
-MODEL_PATH = "pretrained_models/pmmdc_300epochs/best.pt"
+MODEL_PATH = "pretrained_models/pmmdc_5epochs/best.pt"
 
 # ===== DEVICE =====
 DEVICE = "cuda:0" if torch.cuda.is_available() else "cpu"
