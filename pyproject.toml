@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "yolosimulation"
+name = "yolosimulation" 
 version = "1.0.0"
 description = "Federated Learning with YOLO and Flower"
 license = "Apache-2.0"
