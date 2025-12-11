@@ -3,7 +3,7 @@
 clone the repo
 
 ```
-git clone https://github.com/anasimran101/myelocare.git
+git clone https://github.com/EhtishamAhmad123/myelocare.git
 ```
 
 clone the MMDB dataset in root folder   
