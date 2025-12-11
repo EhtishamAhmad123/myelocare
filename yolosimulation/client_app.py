@@ -6,7 +6,7 @@ from yolosimulation.task import get_model, train as train_fn, test as test_fn, m
 from yolosimulation.config import *
 
 
-# Initialize Flower ClientApp
+# Initialize Flower ClientApp 
 app = ClientApp()
 
 @app.train()
