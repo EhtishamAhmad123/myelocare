@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /home/anas/python_venvs/pytorch-gpu/bin/activate
+source /home/ehti/python_venvs/pytorch-gpu/bin/activate
 
 EPOCHS_LIST=(1 5 10)
 ROUNDS_LIST=(5 10)
