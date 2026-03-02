@@ -1,0 +1,13 @@
+FID Score: 32.90
+Inception Score: 2.36 ± 0.21
+KID Score: 0.01234 ± 0.00551
+
+Real Image Stats:
+  brightness: 124.39 ± 4.23
+  contrast: 104.32 ± 1.17
+  sharpness: 9.10 ± 1.29
+
+Synthetic Image Stats:
+  brightness: 141.70 ± 34.55
+  contrast: 86.42 ± 20.17
+  sharpness: 7703.29 ± 18820.57
