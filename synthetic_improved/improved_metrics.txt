@@ -1,0 +1,10 @@
+IMPROVED SYNTHETIC IMAGES QUALITY METRICS
+========================================
+FID Score: 23.20 (Previous: 32.90)
+Inception Score: 2.25 ± 0.15 (Previous: 2.36 ± 0.21)
+KID Score: 0.00583 ± 0.00441
+
+Image Statistics:
+  brightness: 134.24 ± 24.97
+  contrast: 97.41 ± 12.27
+  sharpness: 8637.84 ± 19084.17
