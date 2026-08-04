@@ -1,4 +1,4 @@
-MyeloCare - Full Stack Website
+# MyeloCare - Full Stack Website
 About
 MyeloCare is a comprehensive hospital management and AI diagnostic platform for Multiple Myeloma (MM) diagnosis using Federated Deep Learning. This is the complete web application with role-based access for patients, doctors, lab technicians, and administrators.
 
